@@ -1,0 +1,1606 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>X-Night | Premium Condoms & Lubricants for B2B Partners</title>
+    <meta name="description" content="X-Night offers professional-grade condoms and lubricants for distributors. ISO-certified, clinically tested products with competitive wholesale pricing.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Cormorant+Garamond:wght@300;400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&family=Noto+Sans+Arabic:wght@300;400;500;600;700&family=Noto+Serif+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            /* Colors */
+            --midnight-black: #0B0F14;
+            --deep-navy: #07142A;
+            --gold-accent: #d4af5e;
+            --silver-accent: #BFC7CD;
+            --paper-white: #E6E9EE;
+            --pure-white: #FFFFFF;
+            --charcoal: #1A1D23;
+            --dark-grey: #2D3139;
+            
+            /* Typography */
+            --font-display: 'Playfair Display', serif;
+            --font-display-alt: 'Cormorant Garamond', serif;
+            --font-body: 'IBM Plex Sans', sans-serif;
+            --font-arabic-display: 'Noto Serif Arabic', serif;
+            --font-arabic-body: 'Noto Sans Arabic', sans-serif;
+            
+            /* Spacing */
+            --section-padding: 120px;
+            --container-padding: 80px;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            background: var(--midnight-black);
+            color: var(--paper-white);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        
+        body[dir="rtl"] {
+            font-family: var(--font-arabic-body);
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 var(--container-padding);
+        }
+        
+        @media (max-width: 1200px) {
+            :root {
+                --container-padding: 40px;
+                --section-padding: 80px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            :root {
+                --container-padding: 24px;
+                --section-padding: 60px;
+            }
+        }
+        
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(11, 15, 20, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(201, 162, 77, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            background: rgba(11, 15, 20, 0.98);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px var(--container-padding);
+        }
+        
+        .logo {
+            font-family: var(--font-display);
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--gold-accent);
+            text-decoration: none;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
+            text-shadow: 0 0 20px rgba(201, 162, 77, 0.5);
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+            align-items: center;
+        }
+        
+        .nav-link {
+            color: var(--paper-white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold-accent);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .nav-link:hover {
+            color: var(--gold-accent);
+        }
+        
+        .nav-link.cta {
+            background: linear-gradient(135deg, var(--gold-accent) 0%, #E5C270 100%);
+            padding: 10px 24px;
+            border-radius: 6px;
+            color: var(--midnight-black);
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nav-link.cta::after {
+            display: none;
+        }
+        
+        .nav-link.cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -75%;
+            width: 50%;
+            height: 200%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transform: skewX(-25deg);
+            animation: shimmer 3s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { left: -75%; }
+            100% { left: 175%; }
+        }
+        
+        .lang-switch {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            padding: 8px 16px;
+            background: rgba(201, 162, 77, 0.1);
+            border-radius: 6px;
+            border: 1px solid rgba(201, 162, 77, 0.2);
+        }
+        
+        .lang-btn {
+            background: none;
+            border: none;
+            color: var(--silver-accent);
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 4px 8px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .lang-btn.active {
+            background: var(--gold-accent);
+            color: var(--midnight-black);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+        
+        .mobile-menu-btn span {
+            display: block;
+            width: 28px;
+            height: 2px;
+            background: var(--gold-accent);
+            margin: 6px 0;
+            transition: all 0.3s ease;
+        }
+        
+        @media (max-width: 991px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--midnight-black) 0%, var(--deep-navy) 100%);
+             background-image:
+        linear-gradient(
+            rgba(11, 15, 20, 0.75),
+            rgba(11, 15, 20, 0.9)
+        ),
+        url("depositphotos_54772411-stock-photo-happy-life-wooden-sign.jpg"); /* 👈 غيّر المسار للصورة */
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+   
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(201, 162, 77, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(191, 199, 205, 0.05) 0%, transparent 50%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 900px;
+            padding: 0 20px;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(40px, 6vw, 72px);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, var(--pure-white) 0%, var(--gold-accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+        
+        body[dir="rtl"] .hero-title {
+            font-family: var(--font-arabic-display);
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(18px, 2.5vw, 24px);
+            color: var(--silver-accent);
+            margin-bottom: 40px;
+            font-weight: 300;
+            line-height: 1.6;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+        
+        .hero-ctas {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+        
+        .btn {
+            padding: 16px 40px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+            letter-spacing: 0.5px;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold-accent) 0%, #E5C270 100%);
+            color: var(--midnight-black);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -75%;
+            width: 50%;
+            height: 200%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transform: skewX(-25deg);
+            animation: shimmer 3s infinite;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(201, 162, 77, 0.4);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--gold-accent);
+            border: 2px solid var(--gold-accent);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--gold-accent);
+            color: var(--midnight-black);
+            transform: translateY(-3px);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: var(--section-padding) 0;
+            position: relative;
+        }
+        
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(36px, 5vw, 56px);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--pure-white);
+        }
+        
+        body[dir="rtl"] .section-title {
+            font-family: var(--font-arabic-display);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 18px;
+            color: var(--silver-accent);
+            max-width: 700px;
+            margin: 0 auto 60px;
+            line-height: 1.8;
+        }
+        
+        /* Pillars Section */
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 80px;
+        }
+        
+        .pillar-card {
+            background: linear-gradient(135deg, rgba(26, 29, 35, 0.6) 0%, rgba(45, 49, 57, 0.4) 100%);
+            border: 1px solid rgba(201, 162, 77, 0.2);
+            border-radius: 16px;
+            padding: 40px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pillar-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold-accent), transparent);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+        
+        .pillar-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .pillar-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold-accent);
+            box-shadow: 0 20px 50px rgba(201, 162, 77, 0.15);
+        }
+        
+        .pillar-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--gold-accent), #E5C270);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            margin-bottom: 24px;
+        }
+        
+        .pillar-title {
+            font-family: var(--font-display);
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--gold-accent);
+        }
+        
+        body[dir="rtl"] .pillar-title {
+            font-family: var(--font-arabic-display);
+        }
+        
+        .pillar-desc {
+            color: var(--silver-accent);
+            line-height: 1.8;
+        }
+        
+        /* Trust Bar */
+        .trust-bar {
+            background: linear-gradient(135deg, rgba(7, 20, 42, 0.8) 0%, rgba(26, 29, 35, 0.8) 100%);
+            padding: 40px 0;
+            border-top: 1px solid rgba(201, 162, 77, 0.1);
+            border-bottom: 1px solid rgba(201, 162, 77, 0.1);
+        }
+        
+        .trust-items {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--silver-accent);
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .trust-check {
+            color: var(--gold-accent);
+            font-size: 20px;
+        }
+        
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .product-card {
+            background: linear-gradient(135deg, rgba(26, 29, 35, 0.5) 0%, rgba(45, 49, 57, 0.3) 100%);
+            border: 1px solid rgba(201, 162, 77, 0.15);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--gold-accent);
+            box-shadow: 0 20px 60px rgba(201, 162, 77, 0.2);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, rgba(191, 199, 205, 0.1), rgba(201, 162, 77, 0.05));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: var(--gold-accent);
+            color: var(--midnight-black);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        body[dir="rtl"] .product-badge {
+            right: auto;
+            left: 16px;
+        }
+        
+        .product-info {
+            padding: 32px;
+        }
+        
+        .product-category {
+            color: var(--gold-accent);
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 12px;
+        }
+        
+        .product-name {
+            font-family: var(--font-display);
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--pure-white);
+        }
+        
+        body[dir="rtl"] .product-name {
+            font-family: var(--font-arabic-display);
+        }
+        
+        .product-desc {
+            color: var(--silver-accent);
+            font-size: 14px;
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+        
+        .product-ctas {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        
+        .btn-small {
+            padding: 10px 20px;
+            font-size: 14px;
+        }
+        
+        /* Partnership Section */
+        .partnership-section {
+            background: linear-gradient(135deg, var(--deep-navy) 0%, var(--midnight-black) 100%);
+        }
+        
+        .partnership-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        
+        @media (max-width: 991px) {
+            .partnership-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+        
+        .partnership-visual {
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(135deg, rgba(201, 162, 77, 0.1), rgba(191, 199, 205, 0.05));
+            border-radius: 16px;
+            border: 1px solid rgba(201, 162, 77, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 120px;
+        }
+        
+        .partnership-text h2 {
+            font-family: var(--font-display);
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--gold-accent);
+        }
+        
+        body[dir="rtl"] .partnership-text h2 {
+            font-family: var(--font-arabic-display);
+        }
+        
+        .partnership-benefits {
+            list-style: none;
+            margin: 32px 0;
+        }
+        
+        .partnership-benefits li {
+            padding: 12px 0;
+            padding-left: 32px;
+            position: relative;
+            color: var(--silver-accent);
+            line-height: 1.8;
+        }
+        
+        body[dir="rtl"] .partnership-benefits li {
+            padding-left: 0;
+            padding-right: 32px;
+        }
+        
+        .partnership-benefits li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--gold-accent);
+            font-weight: 700;
+        }
+        
+        body[dir="rtl"] .partnership-benefits li::before {
+            left: auto;
+            right: 0;
+            content: '←';
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--charcoal);
+            border-top: 1px solid rgba(201, 162, 77, 0.1);
+            padding: 80px 0 40px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+        
+        .footer-column h4 {
+            font-family: var(--font-display);
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--gold-accent);
+            margin-bottom: 24px;
+        }
+        
+        body[dir="rtl"] .footer-column h4 {
+            font-family: var(--font-arabic-display);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: var(--silver-accent);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+        
+        .footer-links a:hover {
+            color: var(--gold-accent);
+            padding-left: 8px;
+        }
+        
+        body[dir="rtl"] .footer-links a:hover {
+            padding-left: 0;
+            padding-right: 8px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(201, 162, 77, 0.1);
+            color: var(--silver-accent);
+            font-size: 14px;
+        }
+        
+        /* Form Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(11, 15, 20, 0.95);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .modal.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            background: linear-gradient(135deg, var(--charcoal) 0%, var(--dark-grey) 100%);
+            border: 1px solid rgba(201, 162, 77, 0.3);
+            border-radius: 16px;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: modalSlideIn 0.4s ease-out;
+        }
+        
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: var(--silver-accent);
+            font-size: 28px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+        }
+        
+        body[dir="rtl"] .modal-close {
+            right: auto;
+            left: 20px;
+        }
+        
+        .modal-close:hover {
+            background: rgba(201, 162, 77, 0.2);
+            color: var(--gold-accent);
+        }
+        
+        .modal h3 {
+            font-family: var(--font-display);
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--gold-accent);
+            margin-bottom: 24px;
+        }
+        
+        body[dir="rtl"] .modal h3 {
+            font-family: var(--font-arabic-display);
+        }
+        
+        .form-group {
+            margin-bottom: 24px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--paper-white);
+            font-weight: 500;
+            font-size: 14px;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            background: rgba(11, 15, 20, 0.6);
+            border: 1px solid rgba(201, 162, 77, 0.3);
+            border-radius: 8px;
+            color: var(--paper-white);
+            font-family: inherit;
+            font-size: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--gold-accent);
+            box-shadow: 0 0 0 3px rgba(201, 162, 77, 0.1);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        /* Hidden content for different pages */
+        .page-content {
+            display: none;
+        }
+        
+        .page-content.active {
+            display: block;
+        }
+        
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Loading indicator */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(201, 162, 77, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--gold-accent);
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Success message */
+        .success-message {
+            background: linear-gradient(135deg, rgba(58, 139, 111, 0.2), rgba(58, 139, 111, 0.1));
+            border: 1px solid rgba(58, 139, 111, 0.5);
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 24px;
+            color: var(--paper-white);
+        }
+        
+        .success-message h4 {
+            color: #5CD8A5;
+            margin-bottom: 12px;
+            font-size: 20px;
+        }
+        /* ===== Premium Dropdown ===== */
+.dropdown {
+    position: relative;
+}
+
+/* Dropdown box */
+.dropdown-menu {
+    position: absolute;
+    top: 110%;
+    left: 0;
+    min-width: 240px;
+
+    background: rgba(11, 15, 20, 0.92); /* glass dark */
+    backdrop-filter: blur(14px);
+
+    border-radius: 14px;
+    padding: 14px 0;
+
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.6),
+        inset 0 0 0 1px rgba(201, 162, 77, 0.15);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px) scale(0.98);
+
+    transition: all 0.35s ease;
+    z-index: 1000;
+}
+
+/* Gold top line */
+.dropdown-menu::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 20px;
+    right: 20px;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #C9A24D,
+        transparent
+    );
+}
+
+/* Show dropdown */
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+/* Dropdown items */
+.dropdown-menu li {
+    list-style: none;
+}
+
+/* Links */
+.dropdown-menu li a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 14px 22px;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+
+    color: #E6E9EE;
+    text-decoration: none;
+
+    transition: all 0.25s ease;
+}
+
+/* Hover luxury effect */
+.dropdown-menu li a:hover {
+    background: linear-gradient(
+        90deg,
+        rgba(201, 162, 77, 0.12),
+        transparent
+    );
+    color: #C9A24D;
+    padding-left: 26px;
+}
+
+/* Arrow animation */
+.dropdown-toggle::after {
+    content: "▾";
+    margin-left: 6px;
+    font-size: 11px;
+    transition: transform 0.3s ease;
+}
+
+.dropdown:hover .dropdown-toggle::after {
+    transform: rotate(180deg);
+}
+
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="#home" class="logo" ><img src="D:\x-night\x night logo-02.png" alt="" width="26px" height="26px"></a>
+            
+            <ul class="nav-menu">
+                <li><a href="x-night-website.html" class="nav-link active" data-en="Home" data-ar="الرئيسية">Home</a></li>
+                <li><a href="D:\x-night\product.html" class="nav-link" data-en="Products" data-ar="المنتجات">Products</a></li>
+                <li class="dropdown">
+    <a href="product.html" class="nav-link dropdown-toggle"
+       data-en="Products" data-ar="المنتجات">
+        Products
+    </a>
+
+    <ul class="dropdown-menu">
+        <li>
+            <a href="condoms.html"
+               data-en="Condoms"
+               data-ar="الواقيات">
+                Condoms
+            </a>
+        </li>
+
+        <li>
+            <a href="lubricants.html"
+               data-en="Lubricant Gels"
+               data-ar="المزلقات">
+                Lubricant Gels
+            </a>
+        </li>
+
+        <li>
+            <a href="massage-oil.html"
+               data-en="Massage Oils"
+               data-ar="زيوت المساج">
+                Massage Oils
+            </a>
+        </li>
+    </ul>
+</li>
+                <li><a href="D:\x-night\about.html" class="nav-link" data-en="About" data-ar="من نحن">About</a> </li>
+                <li><a href="#partnerships" class="nav-link cta" data-en="Partnerships" data-ar="الشراكات">Partnerships</a></li>
+                <li>
+                    <div class="lang-switch">
+                        <button class="lang-btn active" onclick="switchLanguage('en')">EN</button>
+                        <button class="lang-btn" onclick="switchLanguage('ar')">AR</button>
+                    </div>
+                </li>
+            </ul>
+            
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content"  >
+            <h1 class="hero-title" data-en="Redefining Intimacy Through Premium Quality" data-ar="إعادة تعريف الحميمية من خلال الجودة الفائقة">
+                Redefining Intimacy Through Premium Quality
+            </h1>
+            <p class="hero-subtitle" data-en="Professional-grade protection and pleasure products for discerning distributors and partners" data-ar="منتجات الحماية والمتعة الاحترافية للموزعين والشركاء المميزين">
+                Professional-grade protection and pleasure products for discerning distributors and partners
+            </p>
+            <div class="hero-ctas">
+                <a href="#" class="btn btn-primary" onclick="openModal(); return false;" data-en="Request Catalog" data-ar="طلب الكتالوج">Request Catalog</a>
+                <a href="#products" class="btn btn-secondary" data-en="Explore Products" data-ar="استكشف المنتجات">Explore Products</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand Pillars -->
+    <section class="pillars-section">
+        <div class="container">
+            <h2 class="section-title" data-en="Why Choose X-Night" data-ar="لماذا X-Night">Why Choose X-Night</h2>
+            <p class="section-subtitle" data-en="Clinical excellence meets sensory innovation" data-ar="التميز السريري يلتقي بالابتكار الحسي">
+                Clinical excellence meets sensory innovation
+            </p>
+            
+            <div class="pillars-grid fade-in">
+                <div class="pillar-card">
+                    <div class="pillar-icon">🛡️</div>
+                    <h3 class="pillar-title" data-en="Clinical-Grade Safety" data-ar="أمان من الدرجة الطبية">Clinical-Grade Safety</h3>
+                    <p class="pillar-desc" data-en="Rigorously tested to international standards (ISO 4074, CE). Every product undergoes triple-layer quality control ensuring maximum protection." data-ar="مُختبرة بدقة وفقًا للمعايير الدولية (ISO 4074، CE). كل منتج يخضع لثلاث مراحل من مراقبة الجودة لضمان أقصى حماية.">
+                        Rigorously tested to international standards (ISO 4074, CE). Every product undergoes triple-layer quality control ensuring maximum protection.
+                    </p>
+                </div>
+                
+                <div class="pillar-card">
+                    <div class="pillar-icon">✨</div>
+                    <h3 class="pillar-title" data-en="Engineered for Sensation" data-ar="مُصممة للإحساس الفائق">Engineered for Sensation</h3>
+                    <p class="pillar-desc" data-en="Ultra-thin technology and innovative textures designed to enhance natural sensation while maintaining integrity." data-ar="تقنية فائقة الرقة وقوام مبتكر مصمم لتعزيز الإحساس الطبيعي مع الحفاظ على المتانة.">
+                        Ultra-thin technology and innovative textures designed to enhance natural sensation while maintaining integrity.
+                    </p>
+                </div>
+                
+                <div class="pillar-card">
+                    <div class="pillar-icon">🔬</div>
+                    <h3 class="pillar-title" data-en="Advanced Materials" data-ar="مواد متقدمة">Advanced Materials</h3>
+                    <p class="pillar-desc" data-en="Non-latex polyisoprene and premium silicone formulations developed through cutting-edge research." data-ar="بوليمرات خالية من اللاتكس وتركيبات سيليكون فاخرة طُورت من خلال الأبحاث المتقدمة.">
+                        Non-latex polyisoprene and premium silicone formulations developed through cutting-edge research.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Bar -->
+    <div class="trust-bar">
+        <div class="container">
+            <div class="trust-items">
+                <div class="trust-item">
+                    <span class="trust-check">✓</span>
+                    <span data-en="ISO 4074 Certified" data-ar="معتمد ISO 4074">ISO 4074 Certified</span>
+                </div>
+                <div class="trust-item">
+                    <span class="trust-check">✓</span>
+                    <span data-en="CE Marked" data-ar="علامة CE">CE Marked</span>
+                </div>
+                <div class="trust-item">
+                    <span class="trust-check">✓</span>
+                    <span data-en="FDA Registered" data-ar="مسجل FDA">FDA Registered</span>
+                </div>
+                <div class="trust-item">
+                    <span class="trust-check">✓</span>
+                    <span data-en="100% Tested" data-ar="100٪ مُختبر">100% Tested</span>
+                </div>
+                <div class="trust-item">
+                    <span class="trust-check">✓</span>
+                    <span data-en="Dermatologically Tested" data-ar="مُختبر جلديًا">Dermatologically Tested</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Products Section -->
+    <section id="products" class="page-content active">
+        <div class="container">
+            <h2 class="section-title" data-en="Our Product Range" data-ar="مجموعة منتجاتنا">Our Product Range</h2>
+            <p class="section-subtitle" data-en="Professional-grade products engineered for excellence" data-ar="منتجات احترافية مُصممة للتميز">
+                Professional-grade products engineered for excellence
+            </p>
+            
+            <div class="products-grid fade-in">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <span class="product-badge" data-en="BEST SELLER" data-ar="الأكثر مبيعًا">BEST SELLER</span>
+                        <img src="D:\x-night\11.webp" alt="" width="100%" height="100%">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category" data-en="CONDOMS" data-ar="الواقيات">CONDOMS</div>
+                        <h3 class="product-name" data-en="X-Night Ultra-Thin Premium" data-ar="X-Night فائق الرقة بريميوم">X-Night Ultra-Thin Premium</h3>
+                        <p class="product-desc" data-en="Experience maximum sensation with our thinnest condom. 0.045mm premium polyisoprene for natural feel without compromise." data-ar="استمتع بأقصى إحساس مع أرق واقي لدينا. 0.045 ملم من البوليمر الفاخر للشعور الطبيعي دون تنازلات.">
+                            Experience maximum sensation with our thinnest condom. 0.045mm premium polyisoprene for natural feel without compromise.
+                        </p>
+                        <div class="product-ctas">
+                            <a href="#" class="btn btn-primary btn-small" onclick="openModal(); return false;" data-en="Request Sample" data-ar="طلب عينة">Request Sample</a>
+                            <a href="#" class="btn btn-secondary btn-small" onclick="openModal(); return false;" data-en="Request Catalog" data-ar="طلب الكتالوج">Request Catalog</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <span class="product-badge" data-en="POPULAR" data-ar="مشهور">POPULAR</span>
+                        <img src="D:\x-night\18.webp" alt="" width="100%" height="100%">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category" data-en="CONDOMS" data-ar="الواقيات">CONDOMS</div>
+                        <h3 class="product-name" data-en="X-Night Ribbed Sensation" data-ar="X-Night محفّر للإحساس">X-Night Ribbed Sensation</h3>
+                        <p class="product-desc" data-en="Textured design for enhanced stimulation. Strategic ribbing pattern engineered for both partners' pleasure." data-ar="تصميم محفّر لتحفيز محسّن. نمط محفّر استراتيجي مصمم لمتعة كلا الشريكين.">
+                            Textured design for enhanced stimulation. Strategic ribbing pattern engineered for both partners' pleasure.
+                        </p>
+                        <div class="product-ctas">
+                            <a href="#" class="btn btn-primary btn-small" onclick="openModal(); return false;" data-en="Request Sample" data-ar="طلب عينة">Request Sample</a>
+                            <a href="#" class="btn btn-secondary btn-small" onclick="openModal(); return false;" data-en="Request Catalog" data-ar="طلب الكتالوج">Request Catalog</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <span class="product-badge" data-en="NEW" data-ar="جديد">NEW</span>
+                        <img src="D:\x-night\king10-1_732x1030.webp" alt="" width="100%" height="100%" >
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category" data-en="CONDOMS" data-ar="الواقيات">CONDOMS</div>
+                        <h3 class="product-name" data-en="X-Night Non-Latex" data-ar="X-Night خالي من اللاتكس">X-Night Non-Latex</h3>
+                        <p class="product-desc" data-en="Safe for latex-sensitive users. Advanced synthetic polyisoprene provides strength and sensitivity." data-ar="آمن لمستخدمي حساسية اللاتكس. بوليمر صناعي متقدم يوفر القوة والحساسية.">
+                            Safe for latex-sensitive users. Advanced synthetic polyisoprene provides strength and sensitivity.
+                        </p>
+                        <div class="product-ctas">
+                            <a href="#" class="btn btn-primary btn-small" onclick="openModal(); return false;" data-en="Request Sample" data-ar="طلب عينة">Request Sample</a>
+                            <a href="#" class="btn btn-secondary btn-small" onclick="openModal(); return false;" data-en="Request Catalog" data-ar="طلب الكتالوج">Request Catalog</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div class="product-image">💧</div>
+                    <div class="product-info">
+                        <div class="product-category" data-en="LUBRICANTS" data-ar="المزلقات">LUBRICANTS</div>
+                        <h3 class="product-name" data-en="Premium Silicone Lubricant" data-ar="مزلق سيليكون فاخر">Premium Silicone Lubricant</h3>
+                        <p class="product-desc" data-en="Long-lasting silky formula. Premium medical-grade silicone for extended pleasure without reapplication." data-ar="تركيبة حريرية طويلة الأمد. سيليكون طبي فاخر للمتعة الممتدة دون إعادة التطبيق.">
+                            Long-lasting silky formula. Premium medical-grade silicone for extended pleasure without reapplication.
+                        </p>
+                        <div class="product-ctas">
+                            <a href="#" class="btn btn-primary btn-small" onclick="openModal(); return false;" data-en="Request Sample" data-ar="طلب عينة">Request Sample</a>
+                            <a href="#" class="btn btn-secondary btn-small" onclick="openModal(); return false;" data-en="Request Catalog" data-ar="طلب الكتالوج">Request Catalog</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 5 -->
+                <div class="product-card">
+                    <div class="product-image">💧</div>
+                    <div class="product-info">
+                        <div class="product-category" data-en="LUBRICANTS" data-ar="المزلقات">LUBRICANTS</div>
+                        <h3 class="product-name" data-en="Water-Based Gel Natural" data-ar="جل مائي طبيعي">Water-Based Gel Natural</h3>
+                        <p class="product-desc" data-en="Gentle water-based formula. Clean, non-sticky, and safe with all condom types. Easy cleanup." data-ar="تركيبة مائية لطيفة. نظيف، غير لاصق، وآمن مع جميع أنواع الواقيات. سهل التنظيف.">
+                            Gentle water-based formula. Clean, non-sticky, and safe with all condom types. Easy cleanup.
+                        </p>
+                        <div class="product-ctas">
+                            <a href="#" class="btn btn-primary btn-small" onclick="openModal(); return false;" data-en="Request Sample" data-ar="طلب عينة">Request Sample</a>
+                            <a href="#" class="btn btn-secondary btn-small" onclick="openModal(); return false;" data-en="Request Catalog" data-ar="طلب الكتالوج">Request Catalog</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 6 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <span class="product-badge" data-en="NEW" data-ar="جديد">NEW</span>
+                        💧
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category" data-en="LUBRICANTS" data-ar="المزلقات">LUBRICANTS</div>
+                        <h3 class="product-name" data-en="Warming Sensation Gel" data-ar="جل دافئ للإحساس">Warming Sensation Gel</h3>
+                        <p class="product-desc" data-en="Gentle warming effect. Natural botanical extracts create subtle warmth for enhanced intimacy." data-ar="تأثير تدفئة لطيف. مستخلصات نباتية طبيعية تخلق دفئًا خفيفًا لحميمية محسّنة.">
+                            Gentle warming effect. Natural botanical extracts create subtle warmth for enhanced intimacy.
+                        </p>
+                        <div class="product-ctas">
+                            <a href="#" class="btn btn-primary btn-small" onclick="openModal(); return false;" data-en="Request Sample" data-ar="طلب عينة">Request Sample</a>
+                            <a href="#" class="btn btn-secondary btn-small" onclick="openModal(); return false;" data-en="Request Catalog" data-ar="طلب الكتالوج">Request Catalog</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="page-content">
+        <div class="container">
+            <h2 class="section-title" data-en="Crafting Premium Intimacy" data-ar="صناعة الحميمية الفاخرة">Crafting Premium Intimacy</h2>
+            <p class="section-subtitle" data-en="X-Night combines clinical excellence with sensory innovation to deliver products that redefine industry standards" data-ar="تجمع X-Night بين التميز السريري والابتكار الحسي لتقديم منتجات تعيد تعريف معايير الصناعة">
+                X-Night combines clinical excellence with sensory innovation to deliver products that redefine industry standards
+            </p>
+            
+            <div class="pillars-grid fade-in" style="margin-top: 60px;">
+                <div class="pillar-card">
+                    <h3 class="pillar-title" data-en="Our Vision" data-ar="رؤيتنا">Our Vision</h3>
+                    <p class="pillar-desc" data-en="Founded on the principle that intimacy products should never compromise between safety and sensation. We're built for the modern distributor who values quality." data-ar="تأسست على مبدأ أن منتجات الحميمية يجب ألا تساوم بين الأمان والإحساس. نحن مبنيون للموزع الحديث الذي يقدر الجودة.">
+                        Founded on the principle that intimacy products should never compromise between safety and sensation. We're built for the modern distributor who values quality.
+                    </p>
+                </div>
+                
+                <div class="pillar-card">
+                    <h3 class="pillar-title" data-en="Manufacturing Excellence" data-ar="التميز في التصنيع">Manufacturing Excellence</h3>
+                    <p class="pillar-desc" data-en="Our facilities operate under ISO 4074 and GMP standards. Every product undergoes electronic testing, visual inspection, and aging tests." data-ar="تعمل منشآتنا وفقًا لمعايير ISO 4074 و GMP. كل منتج يخضع للاختبار الإلكتروني والفحص البصري واختبارات الشيخوخة.">
+                        Our facilities operate under ISO 4074 and GMP standards. Every product undergoes electronic testing, visual inspection, and aging tests.
+                    </p>
+                </div>
+                
+                <div class="pillar-card">
+                    <h3 class="pillar-title" data-en="Quality Metrics" data-ar="مؤشرات الجودة">Quality Metrics</h3>
+                    <p class="pillar-desc" data-en="100% Electronic Testing • <0.25% Defect Rate • 40+ Quality Checkpoints • ISO 4074:2014 Certified" data-ar="100٪ اختبار إلكتروني • <0.25٪ معدل عيوب • 40+ نقطة فحص جودة • معتمد ISO 4074:2014">
+                        100% Electronic Testing • &lt;0.25% Defect Rate • 40+ Quality Checkpoints • ISO 4074:2014 Certified
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partnership Section -->
+    <section id="partnerships" class="partnership-section page-content">
+        <div class="container">
+            <div class="partnership-content fade-in">
+                <div class="partnership-visual">🤝</div>
+                <div class="partnership-text">
+                    <h2 data-en="Become a Distribution Partner" data-ar="كن شريك توزيع">Become a Distribution Partner</h2>
+                    <p style="color: var(--silver-accent); font-size: 18px; margin-bottom: 32px;" data-en="Join our network of premium distributors. We provide comprehensive support, competitive pricing, and exclusive territory protection." data-ar="انضم لشبكة موزعينا المميزين. نوفر دعمًا شاملًا، أسعارًا تنافسية، وحماية حصرية للأراضي.">
+                        Join our network of premium distributors. We provide comprehensive support, competitive pricing, and exclusive territory protection.
+                    </p>
+                    
+                    <ul class="partnership-benefits">
+                        <li data-en="Dedicated account management" data-ar="إدارة حساب مخصصة">Dedicated account management</li>
+                        <li data-en="Marketing materials & POS support" data-ar="مواد تسويقية ودعم نقاط البيع">Marketing materials & POS support</li>
+                        <li data-en="Fast fulfillment & logistics" data-ar="تنفيذ سريع ولوجستيات">Fast fulfillment & logistics</li>
+                        <li data-en="Exclusive product launches" data-ar="إطلاق منتجات حصرية">Exclusive product launches</li>
+                        <li data-en="Competitive wholesale pricing" data-ar="أسعار جملة تنافسية">Competitive wholesale pricing</li>
+                        <li data-en="Territory protection" data-ar="حماية الأراضي">Territory protection</li>
+                    </ul>
+                    
+                    <a href="#" class="btn btn-primary" onclick="openModal(); return false;" data-en="Apply for Partnership" data-ar="تقديم طلب شراكة">Apply for Partnership</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h4 class="logo" style="margin-bottom: 20px;">X-NIGHT</h4>
+                    <p style="color: var(--silver-accent); font-size: 14px; line-height: 1.8;" data-en="Premium intimacy solutions for discerning distributors and partners worldwide." data-ar="حلول الحميمية الفاخرة للموزعين والشركاء المميزين في جميع أنحاء العالم.">
+                        Premium intimacy solutions for discerning distributors and partners worldwide.
+                    </p>
+                </div>
+                
+                <div class="footer-column">
+                    <h4 data-en="Quick Links" data-ar="روابط سريعة">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home" data-en="Home" data-ar="الرئيسية">Home</a></li>
+                        <li><a href="#products" data-en="Products" data-ar="المنتجات">Products</a></li>
+                        <li><a href="#about" data-en="About Us" data-ar="من نحن">About Us</a></li>
+                        <li><a href="#partnerships" data-en="Partnerships" data-ar="الشراكات">Partnerships</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4 data-en="Resources" data-ar="الموارد">Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="openModal(); return false;" data-en="Download Catalog" data-ar="تحميل الكتالوج">Download Catalog</a></li>
+                        <li><a href="#" data-en="Technical Sheets" data-ar="الأوراق الفنية">Technical Sheets</a></li>
+                        <li><a href="#" data-en="Certifications" data-ar="الشهادات">Certifications</a></li>
+                        <li><a href="#" data-en="Quality Standards" data-ar="معايير الجودة">Quality Standards</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4 data-en="Contact" data-ar="تواصل">Contact</h4>
+                    <ul class="footer-links" style="list-style: none;">
+                        <li style="margin-bottom: 8px;">
+                            <span style="color: var(--silver-accent); font-size: 14px;">partners@x-night.com</span>
+                        </li>
+                        <li style="margin-bottom: 8px;">
+                            <span style="color: var(--silver-accent); font-size: 14px;">+971 XX XXX XXXX</span>
+                        </li>
+                        <li style="margin-bottom: 8px;">
+                            <span style="color: var(--silver-accent); font-size: 14px;" data-en="Dubai, UAE" data-ar="دبي، الإمارات">Dubai, UAE</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p data-en="© 2026 X-Night. All rights reserved. | Privacy Policy | Terms & Conditions" data-ar="© 2026 X-Night. جميع الحقوق محفوظة. | سياسة الخصوصية | الشروط والأحكام">
+                    © 2026 X-Night. All rights reserved. | Privacy Policy | Terms & Conditions
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Partnership Inquiry Modal -->
+    <div id="partnerModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            <h3 data-en="Partnership Inquiry" data-ar="استفسار شراكة">Partnership Inquiry</h3>
+            <p style="color: var(--silver-accent); margin-bottom: 32px;" data-en="Fill out the form below and our partnership team will contact you within 2-3 business days." data-ar="املأ النموذج أدناه وسيتصل بك فريق الشراكة لدينا في غضون 2-3 أيام عمل.">
+                Fill out the form below and our partnership team will contact you within 2-3 business days.
+            </p>
+            
+            <form id="partnerForm" onsubmit="submitForm(event)">
+                <div class="form-group">
+                    <label data-en="Company Name *" data-ar="اسم الشركة *">Company Name *</label>
+                    <input type="text" required placeholder="">
+                </div>
+                
+                <div class="form-group">
+                    <label data-en="Your Name *" data-ar="اسمك *">Your Name *</label>
+                    <input type="text" required placeholder="">
+                </div>
+                
+                <div class="form-group">
+                    <label data-en="Email Address *" data-ar="البريد الإلكتروني *">Email Address *</label>
+                    <input type="email" required placeholder="">
+                </div>
+                
+                <div class="form-group">
+                    <label data-en="Phone Number *" data-ar="رقم الهاتف *">Phone Number *</label>
+                    <input type="tel" required placeholder="">
+                </div>
+                
+                <div class="form-group">
+                    <label data-en="Country *" data-ar="البلد *">Country *</label>
+                    <select required>
+                        <option value="">Select...</option>
+                        <option value="UAE">United Arab Emirates</option>
+                        <option value="KSA">Saudi Arabia</option>
+                        <option value="Egypt">Egypt</option>
+                        <option value="Kuwait">Kuwait</option>
+                        <option value="Qatar">Qatar</option>
+                        <option value="Bahrain">Bahrain</option>
+                        <option value="Oman">Oman</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label data-en="Business Type *" data-ar="نوع العمل *">Business Type *</label>
+                    <select required>
+                        <option value="">Select...</option>
+                        <option value="Distributor" data-en="Distributor" data-ar="موزع">Distributor</option>
+                        <option value="Retailer" data-en="Retailer" data-ar="بائع تجزئة">Retailer</option>
+                        <option value="Pharmacy" data-en="Pharmacy Chain" data-ar="سلسلة صيدليات">Pharmacy Chain</option>
+                        <option value="Hospital" data-en="Hospital Supply" data-ar="مستلزمات مستشفى">Hospital Supply</option>
+                        <option value="Other" data-en="Other" data-ar="أخرى">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label data-en="Message" data-ar="الرسالة">Message</label>
+                    <textarea placeholder="" data-en-placeholder="Tell us about your business and partnership goals..." data-ar-placeholder="أخبرنا عن عملك وأهداف الشراكة..."></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-primary" style="width: 100%;">
+                    <span class="btn-text" data-en="Submit Application" data-ar="تقديم الطلب">Submit Application</span>
+                </button>
+                
+                <div id="successMessage" class="success-message" style="display: none;">
+                    <h4 data-en="✓ Application Received Successfully" data-ar="✓ تم استلام الطلب بنجاح">✓ Application Received Successfully</h4>
+                    <p data-en="Thank you for your interest in partnering with X-Night. Your application has been assigned reference number: #XN-2026-" data-ar="شكرًا لاهتمامك بالشراكة مع X-Night. تم تعيين رقم مرجعي لطلبك: #XN-2026-">
+                        Thank you for your interest in partnering with X-Night. Your application has been assigned reference number: #XN-2026-<span id="refNumber"></span>
+                    </p>
+                    <p data-en="Our partnership team will review your application within 2-3 business days." data-ar="سيراجع فريق الشراكة لدينا طلبك في غضون 2-3 أيام عمل.">
+                        Our partnership team will review your application within 2-3 business days.
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Language switching
+        let currentLang = 'en';
+        
+        function switchLanguage(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang;
+            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+            
+            // Update active button
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Update all translatable elements
+            document.querySelectorAll('[data-en]').forEach(el => {
+                const text = el.getAttribute(`data-${lang}`);
+                if (text) {
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                        el.placeholder = text;
+                    } else {
+                        el.textContent = text;
+                    }
+                }
+            });
+        }
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && !href.includes('modal')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        
+                        // Update active nav link
+                        document.querySelectorAll('.nav-link').forEach(link => {
+                            link.classList.remove('active');
+                        });
+                        this.classList.add('active');
+                    }
+                }
+            });
+        });
+        
+        // Modal functions
+        function openModal() {
+            document.getElementById('partnerModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModal() {
+            document.getElementById('partnerModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+            document.getElementById('partnerForm').reset();
+            document.getElementById('successMessage').style.display = 'none';
+        }
+        
+        // Form submission
+        function submitForm(e) {
+            e.preventDefault();
+            
+            // Generate random reference number
+            const refNumber = Math.floor(1000 + Math.random() * 9000);
+            document.getElementById('refNumber').textContent = refNumber;
+            
+            // Hide form and show success message
+            e.target.style.display = 'none';
+            document.getElementById('successMessage').style.display = 'block';
+            
+            // Reset and close after 5 seconds
+            setTimeout(() => {
+                closeModal();
+                e.target.style.display = 'block';
+            }, 5000);
+        }
+        
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const navMenu = document.querySelector('.nav-menu');
+            navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+        }
+        
+        // Close modal on outside click
+        document.getElementById('partnerModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+        
+        // Initialize animations on load
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.fade-in').forEach((el, index) => {
+                setTimeout(() => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+    </script>
+</body>
+</html>

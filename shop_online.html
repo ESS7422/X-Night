@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Online | X-Night Premium Products</title>
+    <meta name="description" content="Shop X-Night premium products online from authorized retailers">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Noto+Sans+Arabic:wght@300;400;500;600;700&family=Noto+Serif+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ============================================
+           RESET & VARIABLES
+        ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --midnight-black: #0B0F14;
+            --deep-navy: #07142A;
+            --gold-accent: #d4af5e;
+            --silver-accent: #BFC7CD;
+            --paper-white: #E6E9EE;
+            --pure-white: #FFFFFF;
+            --charcoal: #1A1D23;
+            --font-display: 'Playfair Display', serif;
+            --font-body: 'IBM Plex Sans', sans-serif;
+            --font-arabic-display: 'Noto Serif Arabic', serif;
+            --font-arabic-body: 'Noto Sans Arabic', sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            background: var(--midnight-black);
+            color: var(--paper-white);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        
+        body[dir="rtl"] {
+            font-family: var(--font-arabic-body);
+        }
+        
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 80px;
+        }
+        
+        @media (max-width: 1200px) {
+            .container {
+                padding: 0 40px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 24px;
+            }
+        }
+        
+         /* ============================================
+           NAVBAR - DESKTOP & MOBILE
+        ============================================ */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(11, 15, 20, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(212, 175, 94, 0.15);
+            z-index: 1000;
+            transition: all 0.4s ease;
+        }
+        
+        .navbar.scrolled {
+            background: rgba(7, 20, 42, 0.95);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            border-bottom-color: rgba(212, 175, 94, 0.3);
+        }
+        
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            transition: padding 0.4s ease;
+        }
+        
+        .navbar.scrolled .nav-content {
+            padding: 12px 0;
+        }
+        
+        .logo img {
+            transition: all 0.3s ease;
+            filter: drop-shadow(0 2px 10px rgba(212, 175, 94, 0.3));
+        }
+        
+        .logo:hover img {
+            transform: scale(1.05);
+            filter: drop-shadow(0 4px 20px rgba(212, 175, 94, 0.6));
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 12px;
+            list-style: none;
+            align-items: center;
+        }
+        
+        .nav-item {
+            position: relative;
+        }
+        
+        .nav-link {
+            display: inline-block;
+            padding: 12px 24px;
+            color: var(--paper-white);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover,
+        .nav-link.active {
+            background: rgba(212, 175, 94, 0.15);
+            color: var(--gold-accent);
+        }
+        
+        .has-dropdown .nav-link::after {
+            content: '▾';
+            margin-left: 6px;
+            font-size: 11px;
+            transition: transform 0.3s ease;
+        }
+        
+        .has-dropdown:hover .nav-link::after {
+            transform: rotate(180deg);
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: calc(100% + 12px);
+            left: 0;
+            background: linear-gradient(135deg, rgba(26, 29, 35, 0.98) 0%, rgba(45, 49, 57, 0.98) 100%);
+            border: 1px solid rgba(212, 175, 94, 0.25);
+            border-radius: 12px;
+            min-width: 240px;
+            padding: 12px 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+        }
+        
+        .nav-item:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown-link {
+            display: block;
+            padding: 14px 24px;
+            color: var(--silver-accent);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+        
+        .dropdown-link:hover {
+            background: rgba(212, 175, 94, 0.12);
+            color: var(--gold-accent);
+            border-left-color: var(--gold-accent);
+            padding-left: 32px;
+        }
+        
+        .lang-switch {
+            display: flex;
+            gap: 4px;
+            padding: 6px;
+            background: rgba(26, 29, 35, 0.6);
+            border-radius: 8px;
+            border: 1px solid rgba(212, 175, 94, 0.2);
+        }
+        
+        .lang-btn {
+            background: none;
+            border: none;
+            color: var(--silver-accent);
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+        
+        .lang-btn.active {
+            background: var(--gold-accent);
+            color: var(--midnight-black);
+        }
+        
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: 2px solid var(--gold-accent);
+            cursor: pointer;
+            padding: 8px 12px;
+            border-radius: 8px;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .mobile-menu-btn span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--gold-accent);
+            transition: all 0.3s ease;
+        }
+        
+        /* Mobile Styles */
+        @media (max-width: 991px) {
+            .logo img {
+                width: 90px;
+                height: 82px;
+            }
+            
+            .mobile-menu-btn {
+                display: flex;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: rgba(7, 20, 42, 0.98);
+                backdrop-filter: blur(15px);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 20px;
+                padding: 80px 20px;
+                z-index: 999;
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.5s ease;
+            }
+            
+            .nav-menu.active {
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .nav-item {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .nav-link {
+                font-size: 20px;
+                width: 100%;
+                display: block;
+            }
+            
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                background: rgba(26, 29, 35, 0.5);
+                border: none;
+                box-shadow: none;
+                margin-top: 10px;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+            }
+            
+            .has-dropdown.open .dropdown-menu {
+                max-height: 300px;
+            }
+            
+            .dropdown-link {
+                text-align: center;
+                font-size: 16px;
+                border-left: none;
+            }
+            
+            .dropdown-link:hover {
+                padding-left: 24px;
+            }
+            
+            .lang-switch {
+                margin-top: 20px;
+            }
+        }
+        /* ============================================
+           HERO SECTION
+        ============================================ */
+        .hero-section {
+            position: relative;
+            margin-top: 80px;
+            padding: 120px 0 80px;
+            background: linear-gradient(135deg, var(--deep-navy) 0%, var(--midnight-black) 100%);
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(212, 175, 94, 0.1) 0%, transparent 60%);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .hero-content h1 {
+            font-family: var(--font-display);
+            font-size: 64px;
+            font-weight: 800;
+            color: var(--gold-accent);
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+            text-shadow: 0 4px 20px rgba(212, 175, 94, 0.4);
+        }
+        
+        body[dir="rtl"] .hero-content h1 {
+            font-family: var(--font-arabic-display);
+        }
+        
+        .hero-content .subtitle {
+            font-size: 20px;
+            color: var(--paper-white);
+            margin-bottom: 15px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 25px;
+            font-size: 14px;
+        }
+        
+        .breadcrumb a {
+            color: var(--silver-accent);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .breadcrumb a:hover {
+            color: var(--gold-accent);
+        }
+        
+        .breadcrumb span {
+            color: var(--gold-accent);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 40px;
+            }
+            
+            .hero-content .subtitle {
+                font-size: 17px;
+            }
+        }
+        
+        /* ============================================
+           INFO SECTION
+        ============================================ */
+        .info-section {
+            padding: 80px 0;
+        }
+        
+        .info-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .info-content p {
+            font-size: 20px;
+            line-height: 2;
+            color: var(--paper-white);
+            margin-bottom: 25px;
+        }
+        
+        .info-content p:last-of-type {
+            margin-bottom: 60px;
+        }
+        
+        @media (max-width: 768px) {
+            .info-content p {
+                font-size: 17px;
+            }
+        }
+        
+        /* ============================================
+           SHOP CARDS
+        ============================================ */
+        .shop-section {
+            padding: 0 0 100px;
+            margin-top: 40px;
+        }
+        
+        .shop-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 50px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .shop-card {
+            background: linear-gradient(135deg, rgba(26, 29, 35, 0.6) 0%, rgba(7, 20, 42, 0.4) 100%);
+            border: 1px solid rgba(212, 175, 94, 0.2);
+            border-radius: 24px;
+            padding: 60px 50px;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .shop-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold-accent), transparent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+        
+        .shop-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .shop-card:hover {
+            background: linear-gradient(135deg, rgba(26, 29, 35, 0.9) 0%, rgba(7, 20, 42, 0.6) 100%);
+            border-color: rgba(212, 175, 94, 0.5);
+            transform: translateY(-10px);
+            box-shadow: 0 25px 70px rgba(212, 175, 94, 0.2);
+        }
+        
+        .shop-icon {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, rgba(212, 175, 94, 0.2), rgba(212, 175, 94, 0.1));
+            border: 3px solid rgba(212, 175, 94, 0.4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            margin: 0 auto 35px;
+            transition: all 0.4s ease;
+        }
+        
+        .shop-card:hover .shop-icon {
+            background: linear-gradient(135deg, rgba(212, 175, 94, 0.3), rgba(212, 175, 94, 0.15));
+            border-color: var(--gold-accent);
+            transform: scale(1.15) rotate(10deg);
+        }
+        
+        .shop-card h3 {
+            font-family: var(--font-display);
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--gold-accent);
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+        }
+        
+        body[dir="rtl"] .shop-card h3 {
+            font-family: var(--font-arabic-display);
+        }
+        
+        .shop-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 48px;
+            background: linear-gradient(135deg, var(--gold-accent) 0%, #c9a155 100%);
+            color: var(--midnight-black);
+            text-decoration: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .shop-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(212, 175, 94, 0.5);
+        }
+        
+        .shop-btn::after {
+            content: '→';
+            font-size: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        body[dir="rtl"] .shop-btn::after {
+            content: '←';
+        }
+        
+        .shop-btn:hover::after {
+            transform: translateX(5px);
+        }
+        
+        body[dir="rtl"] .shop-btn:hover::after {
+            transform: translateX(-5px);
+        }
+        
+        @media (max-width: 768px) {
+            .shop-cards {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+            
+            .shop-card {
+                padding: 50px 35px;
+            }
+            
+            .shop-icon {
+                width: 100px;
+                height: 100px;
+                font-size: 50px;
+            }
+            
+            .shop-card h3 {
+                font-size: 26px;
+            }
+        }
+        
+               /* ============================================
+           FOOTER
+        ============================================ */
+      footer {
+    width: 100vw; /* يستخدم عرض نافذة المتصفح بالكامل */
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+            background: linear-gradient(135deg, var(--midnight-black) 0%, var(--deep-navy) 100%);
+    padding: 60px 0;
+}
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+        
+        .footer-column h4 {
+            font-family: var(--font-display);
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--gold-accent);
+            margin-bottom: 24px;
+        }
+        
+        body[dir="rtl"] .footer-column h4 {
+            font-family: var(--font-arabic-display);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: var(--silver-accent);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+        
+        .footer-links a:hover {
+            color: var(--gold-accent);
+            padding-left: 8px;
+        }
+        
+        body[dir="rtl"] .footer-links a:hover {
+            padding-left: 0;
+            padding-right: 8px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(212, 175, 94, 0.1);
+            color: var(--silver-accent);
+            font-size: 14px;
+        }
+        
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* ============================================
+           ANIMATIONS
+        ============================================ */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+   <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="D:\x-night\x-night-final-updated.html" class="logo" ><img src="D:\x-night\x night logo-02.png" width="110px" height="100px" alt=""></a>
+                
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="D:\x-night\x-night-final-updated.html" class="nav-link active" data-en="Home" data-ar="الرئيسية">Home</a>
+                    </li>
+                    
+                    <li class="nav-item has-dropdown">
+                        <a href="D:\x-night\about brand\about_brand.html" class="nav-link" data-en="About the Brand" data-ar="عن العلامة التجارية">About the Brand</a>
+                        <div class="dropdown-menu">
+                            <a href="D:\x-night\about brand\brand_story.html" class="dropdown-link" data-en="Brand Story" data-ar="قصة العلامة التجارية">Brand Story</a>
+                            <a href="D:\x-night\about brand\brand_vision.html" class="dropdown-link" data-en="Brand Vision" data-ar="رؤيتنا">Brand Vision</a>
+                            <a href="D:\x-night\about brand\brand_mission.html" class="dropdown-link" data-en="Brand Mission" data-ar="رسالتنا">Brand Mission</a>
+                        </div>
+                    </li>
+                    
+                    <li class="nav-item has-dropdown">
+                        <a href="D:\x-night\products\all_products.html" class="nav-link" data-en="Products" data-ar="المنتجات">Products</a>
+                        <div class="dropdown-menu">
+                            <a href="D:\x-night\products\massage.oil.html" class="dropdown-link" data-en="Massage Oil" data-ar="زيت المساج">Massage Oil</a>
+                            <a href="D:\x-night\products\lubricant_gel.html" class="dropdown-link" data-en="Lubricant & Massage Gel" data-ar="جل مساج و مزلقات">Lubricant & Massage Gel</a>
+                            <a href="D:\x-night\products\whitening_drops.html" class="dropdown-link" data-en="Whitening Drops" data-ar="قطرات التفتيح">Whitening Drops</a>
+                        </div>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a href="D:\x-night\contact us\contact_us.html" class="nav-link" data-en="Contact Us" data-ar="تواصل معنا">Contact Us</a>
+                    </li>
+                     <li class="nav-item">
+                        <a href="D:\x-night\shop_online.html" class="nav-link" data-en="shop Online" data-ar="تسوق منتجاتنا اونلاين">shop Online</a>
+                    </li>
+
+                    <li class="lang-item">
+                        <div class="lang-switch">
+                            <button class="lang-btn active" onclick="switchLanguage('en')">EN</button>
+                            <button class="lang-btn" onclick="switchLanguage('ar')">AR</button>
+                        </div>
+                    </li>
+                </ul>      
+                            <button class="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 data-en="Shop Online" data-ar="تسوق اونلاين">Shop Online</h1>
+            <p class="subtitle" data-en="X-Night products are available in many pharmacies and retail stores." data-ar="تتوفر منتجات X-night  في العديد من الصيدليات ومحلات التجزئة">X-Night products are available in many pharmacies and retail stores.</p>
+            <p class="subtitle" data-en="Consumers can also purchase X-Night products online from the following websites" data-ar="كما يمكن للمستهلك شراء منتجات X-night اونلاين من المواقع التالية">Consumers can also purchase X-Night products online from the following websites</p>
+            <div class="breadcrumb">
+                <a href="D:\x-night\x-night-final-updated.html" data-en="Home" data-ar="الرئيسية">Home</a>
+                <span>›</span>
+                <span data-en="Shop Online" data-ar="تسوق اونلاين">Shop Online</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Section --
+    <section class="info-section fade-in">
+        <div class="container">
+            <div class="info-content">
+                <p data-en="X-Night products are available in many pharmacies and retail stores." data-ar="تتوفر منتجات X-Night في العديد من الصيدليات ومحلات التجزئة.">
+                    X-Night products are available in many pharmacies and retail stores.
+                </p>
+                <p data-en="Consumers can also purchase X-Night products online from the following websites:" data-ar="كما يمكن للمستهلك شراء منتجات X-Night اونلاين من المواقع التالية:">
+                    Consumers can also purchase X-Night products online from the following websites:
+                </p>
+            </div>
+        </div>
+    </section>
+                    -->
+    <!-- Shop Cards Section -->
+    <section class="shop-section">
+        <div class="container">
+            <div class="shop-cards">
+                <!-- Enjoy Mart Card -->
+                <div class="shop-card fade-in">
+                    <div class="shop-icon">🛒</div>
+                    <h3 data-en="Enjoy Mart" data-ar="إنجوي مارت">Enjoy Mart</h3>
+                    <a href="https://ksa-enjoy.com/" target="_blank" class="shop-btn">
+                        <span data-en="Shop Now" data-ar="تسوق الآن">Shop Now</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+       <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h4 class="logo" style="margin-bottom: 20px;">X-NIGHT</h4>
+                    <p style="color: var(--silver-accent); font-size: 14px; line-height: 1.8;" data-en="Premium intimate care products for discerning partners worldwide." data-ar="منتجات رعاية حميمة فاخرة للشركاء المميزين في جميع أنحاء العالم.">
+                        Premium intimate care products for discerning partners worldwide.
+                    </p>
+                </div>
+                
+                <div class="footer-column">
+                    <h4 data-en="Quick Links" data-ar="روابط سريعة">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="D:\x-night\x-night-final-updated.html" data-en="Home" data-ar="الرئيسية">Home</a></li>
+                        <li><a href="D:\x-night\about brand\about_brand.html" data-en="About The Brand" data-ar="من نحن">About The Brand</a></li>
+                        <li><a href="D:\x-night\products\all_products.html" data-en="Products" data-ar="المنتجات">Products</a></li>
+                        <li><a href="D:\x-night\contact us\contact_us.html" data-en="Contact" data-ar="تواصل">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4 data-en="Products" data-ar="المنتجات">Products</h4>
+                    <ul class="footer-links">
+                        <li><a href="D:\x-night\products\massage.oil.html" data-en="Massage Oil" data-ar="زيت التدليك">Massage Oil</a></li>
+                        <li><a href="D:\x-night\products\lubricant_gel.html" data-en="Lubricant & Gel" data-ar="مزلق وجل">Lubricant & Gel</a></li>
+                        <li><a href="D:\x-night\products\whitening_drops.html " data-en="Whitening Drops" data-ar="قطرات التبييض">Whitening Drops</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4 data-en="Contact" data-ar="تواصل">Contact</h4>
+                    <ul class="footer-links" style="list-style: none;">
+                        <li style="margin-bottom: 12px;">
+                        <li style="margin-bottom: 12px;">
+    <span style="font-size: 14px;">
+        <a href="mailto:Info@ulm.com.sa" style="color: var(--silver-accent); text-decoration: none;">Info@ulm.com.sa</a>
+    </span>
+        </li>
+
+            <li style="margin-bottom: 12px;">
+         <span style="font-size: 14px;">
+        <a href="tel:+966590310308" style="color: var(--silver-accent); text-decoration: none;">+966590310308</a>
+    </span>
+</li>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p data-en="© 2026 X-Night. All rights reserved." data-ar="© 2026 X-Night. جميع الحقوق محفوظة.">
+                    © 2026 X-Night. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Scripts -->
+    <script>
+  // Language Switching
+        
+      /* ============================================================
+   ★ SHARED SCRIPTS ★
+============================================================ */
+
+// 1. Language Logic
+
+function switchLanguage(lang) {
+    currentLang = lang;
+    localStorage.setItem('selectedLang', lang); // حفظ اللغة
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    
+    // تحديث أزرار اللغة
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        // نتحقق من النص داخل الزر أو كلاس معين لضبط الحالة النشطة
+        if (btn.textContent.toLowerCase() === lang) {
+            btn.classList.add('active');
+        } else {
+            btn.classList.remove('active');
+        }
+    });
+    
+    // ترجمة النصوص
+    document.querySelectorAll('[data-en]').forEach(el => {
+        const text = el.getAttribute(`data-${lang}`);
+        if (text) {
+            el.textContent = text;
+        }
+    });
+}
+
+// 2. Mobile Menu Logic (الربط الاحترافي)
+document.addEventListener('DOMContentLoaded', () => {
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    const navMenu = document.querySelector('.nav-menu');
+
+    if (menuBtn && navMenu) {
+        menuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            menuBtn.classList.toggle('open');
+
+            // تحريك الهمبرجر إلى X
+            const spans = menuBtn.querySelectorAll('span');
+            if (menuBtn.classList.contains('open')) {
+                spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                spans[1].style.opacity = '0';
+                spans[2].style.transform = 'rotate(-45deg) translate(6px, -6px)';
+                document.body.style.overflow = 'hidden'; // قفل السكرول عند فتح المنيو
+            } else {
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+                document.body.style.overflow = ''; // فتح السكرول
+            }
+        });
+    }
+// Mobile Dropdown Toggle - نسخة معدلة بدقة
+document.querySelectorAll('.has-dropdown > .nav-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+        if (window.innerWidth <= 991) {
+            // نمنع الانتقال فقط للرابط الأب لكي يفتح القائمة المنسدلة
+            e.preventDefault(); 
+            
+            const parent = this.parentElement;
+            
+            // إغلاق أي قوائم أخرى مفتوحة لضمان شكل نظيف
+            document.querySelectorAll('.has-dropdown').forEach(item => {
+                if (item !== parent) {
+                    item.classList.remove('open');
+                }
+            });
+            
+            // فتح أو غلق القائمة الحالية
+            parent.classList.toggle('open');
+            
+            console.log("Parent toggled, submenu should be visible");
+        }
+    });
+});
+// الروابط الداخلية (التي داخل القائمة المنسدلة)
+    const subLinks = document.querySelectorAll('.dropdown-menu a');
+    subLinks.forEach(sub => {
+        sub.addEventListener('click', function(e) {
+            // لا نستخدم preventDefault هنا أبداً لكي يذهب للصفحة
+            // إغلاق القائمة بعد الضغط (اختياري)
+            document.querySelector('.nav-menu').classList.remove('active');
+            document.querySelector('.mobile-menu-btn').classList.remove('open');
+            document.body.style.overflow = '';
+        });
+    });
+
+    // تنفيذ اللغة المحفوظة عند التحميل
+    switchLanguage(currentLang);
+});
+
+// 4. Navbar Scroll Effect
+window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('.navbar');
+    if (navbar) {
+        navbar.classList.toggle('scrolled', window.scrollY > 50);
+    }
+});
+
+// 5. Close menu when clicking outside
+document.addEventListener('click', (e) => {
+    const navMenu = document.querySelector('.nav-menu');
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    
+    if (navMenu && navMenu.classList.contains('active')) {
+        // إذا ضغطت خارج المنيو وخارج زر المنيو
+        if (!navMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+            navMenu.classList.remove('active');
+            menuBtn.classList.remove('open');
+            // إرجاع شكل الزر
+            const spans = menuBtn.querySelectorAll('span');
+            spans[0].style.transform = 'none';
+            spans[1].style.opacity = '1';
+            spans[2].style.transform = 'none';
+            document.body.style.overflow = '';
+        }
+    }
+});
+
+        
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Scroll Animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        });
+        
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
