@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About X-Night | Our Vision & Standards</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* سأعتمد نفس الـ CSS الموجود في ملفك الأصلي لضمان التطابق التام */
+        :root {
+            --midnight-black: #0B0F14;
+            --deep-navy: #07142A;
+            --gold-accent: #d4af5e;
+            --silver-accent: #BFC7CD;
+            --paper-white: #E6E9EE;
+            --pure-white: #FFFFFF;
+            --font-display: 'Playfair Display', serif;
+            --font-body: 'IBM Plex Sans', sans-serif;
+            --font-arabic-body: 'Noto Sans Arabic', sans-serif;
+            --section-padding: 100px;
+        }
+
+        body {
+            background: var(--midnight-black);
+            color: var(--paper-white);
+            font-family: var(--font-body);
+            margin: 0;
+            line-height: 1.7;
+        }
+
+        body[dir="rtl"] { font-family: var(--font-arabic-body); }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+
+        /* Navbar Placeholder (Matches your style) */
+        .navbar {
+            padding: 20px 40px;
+            background: rgba(11, 15, 20, 0.95);
+            border-bottom: 1px solid rgba(201, 162, 77, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo { font-family: var(--font-display); color: var(--gold-accent); font-weight: 700; font-size: 24px; text-decoration: none; }
+
+        /* About Hero */
+        .about-hero {
+            padding: 150px 0 80px;
+            background: linear-gradient(180deg, var(--deep-navy) 0%, var(--midnight-black) 100%);
+            text-align: center;
+        }
+
+        .hero-label {
+            color: var(--gold-accent);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 14px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .about-title {
+            font-family: var(--font-display);
+            font-size: clamp(40px, 5vw, 64px);
+            margin-bottom: 30px;
+        }
+
+        /* Story Section */
+        .story-section { padding: var(--section-padding) 0; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+
+        .image-placeholder {
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(45deg, #1A1D23, #07142A);
+            border: 1px solid rgba(212, 175, 94, 0.2);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-style: italic;
+            color: var(--gold-accent);
+        }
+
+        .text-content h2 { font-family: var(--font-display); color: var(--gold-accent); font-size: 32px; margin-bottom: 20px; }
+
+        /* Values Grid */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .value-card {
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 2px solid var(--gold-accent);
+            transition: 0.3s;
+        }
+
+        .value-card:hover { background: rgba(212, 175, 94, 0.05); transform: translateY(-5px); }
+
+        .lang-switch { display: flex; gap: 10px; }
+        .lang-btn { 
+            background: none; border: 1px solid var(--gold-accent); color: var(--gold-accent); 
+            padding: 5px 12px; cursor: pointer; border-radius: 4px; 
+        }
+        .lang-btn.active { background: var(--gold-accent); color: #000; }
+
+        footer { padding: 60px 0; border-top: 1px solid rgba(212, 175, 94, 0.1); text-align: center; color: var(--silver-accent); }
+
+        @media (max-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr; gap: 40px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">X-NIGHT</a>
+        <div class="lang-switch">
+            <button class="lang-btn active" onclick="switchLanguage('en')">EN</button>
+            <button class="lang-btn" onclick="switchLanguage('ar')">AR</button>
+        </div>
+    </nav>
+
+    <header class="about-hero">
+        <div class="container">
+            <span class="hero-label" data-en="Our Legacy" data-ar="إرثنا">Our Legacy</span>
+            <h1 class="about-title" data-en="Where Science Meets Intimacy" data-ar="حيث يلتقي العلم بالخصوصية">Where Science Meets Intimacy</h1>
+        </div>
+    </header>
+
+    <section class="story-section">
+        <div class="container">
+            <div class="grid-2">
+                <div class="image-placeholder">
+                    [ Brand Visual / Laboratory Excellence ]
+                </div>
+                <div class="text-content">
+                    <h2 data-en="The X-Night Philosophy" data-ar="فلسفة X-Night">The X-Night Philosophy</h2>
+                    <p data-en="Founded in 2024, X-Night was born from a simple realization: the global market lacked a brand that perfectly balances clinical-grade safety with a premium, luxury experience. We don't just manufacture protection; we engineer peace of mind." data-ar="تأسست X-Night في عام 2024، ولدت من إدراك بسيط: السوق العالمي يفتقر إلى علامة تجارية توازن تمامًا بين الأمان الطبي والتجربة الفاخرة. نحن لا نصنع الحماية فحسب؛ نحن نصمم راحة البال.">
+                        Founded in 2024, X-Night was born from a simple realization: the global market lacked a brand that perfectly balances clinical-grade safety with a premium, luxury experience. We don't just manufacture protection; we engineer peace of mind.
+                    </p>
+                    <p data-en="Our partnership with top-tier distributors ensures that X-Night is more than a product—it's a statement of quality for those who refuse to compromise." data-ar="شراكتنا مع كبار الموزعين تضمن أن X-Night هي أكثر من مجرد منتج - إنها بيان جودة لأولئك الذين يرفضون المساومة.">
+                        Our partnership with top-tier distributors ensures that X-Night is more than a product—it's a statement of quality for those who refuse to compromise.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="story-section" style="background: rgba(212, 175, 94, 0.02);">
+        <div class="container">
+            <h2 style="text-align: center; font-family: var(--font-display); margin-bottom: 50px;" data-en="Core Pillars" data-ar="الركائز الأساسية">Core Pillars</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <h3 data-en="Uncompromising Safety" data-ar="أمان بلا مساومة">Uncompromising Safety</h3>
+                    <p data-en="Every batch is electronically tested. 100% ISO 4074 compliance is our baseline, not our goal." data-ar="يتم اختبار كل دفعة إلكترونيًا. الامتثال لمعيار ISO 4074 بنسبة 100٪ هو خط الأساس لدينا، وليس هدفنا.">Every batch is electronically tested. 100% ISO 4074 compliance is our baseline, not our goal.</p>
+                </div>
+                <div class="value-card">
+                    <h3 data-en="Premium Aesthetics" data-ar="جماليات فاخرة">Premium Aesthetics</h3>
+                    <p data-en="Designed for the modern, sophisticated consumer. Our packaging reflects the quality within." data-ar="مصمم للمستهلك العصري والمتطور. تغليفنا يعكس الجودة الموجودة بالداخل.">Designed for the modern, sophisticated consumer. Our packaging reflects the quality within.</p>
+                </div>
+                <div class="value-card">
+                    <h3 data-en="B2B Excellence" data-ar="تميز الشركاء">B2B Excellence</h3>
+                    <p data-en="We provide our distributors with the highest margins and the best marketing support in the industry." data-ar="نوفر لموزعينا أعلى هوامش الربح وأفضل دعم تسويقي في هذه الصناعة.">We provide our distributors with the highest margins and the best marketing support in the industry.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 X-NIGHT GLOBAL. ALL RIGHTS RESERVED.</p>
+        </div>
+    </footer>
+
+    <script>
+        function switchLanguage(lang) {
+            document.documentElement.lang = lang;
+            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+            
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            document.querySelectorAll('[data-en]').forEach(el => {
+                el.textContent = el.getAttribute(`data-${lang}`);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Massage Gel & Lubricant | X-Night Premium Products</title>
+    <meta name="description" content="Explore our premium massage gel & lubricant collection in 10 delicious flavors">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Noto+Sans+Arabic:wght@300;400;500;600;700&family=Noto+Serif+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --midnight-black: #0B0F14;
+            --deep-navy: #07142A;
+            --gold-accent: #d4af5e;
+            --silver-accent: #BFC7CD;
+            --paper-white: #E6E9EE;
+            --pure-white: #FFFFFF;
+            --charcoal: #1A1D23;
+            --dark-grey: #2D3139;
+            --font-display: 'Playfair Display', serif;
+            --font-body: 'IBM Plex Sans', sans-serif;
+            --font-arabic-display: 'Noto Serif Arabic', serif;
+            --font-arabic-body: 'Noto Sans Arabic', sans-serif;
+        }
+        
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); background: var(--midnight-black); color: var(--paper-white); line-height: 1.7; overflow-x: hidden; }
+        body[dir="rtl"] { font-family: var(--font-arabic-body); }
+        
+        .container { max-width: 1440px; margin: 0 auto; padding: 0 80px; }
+        @media (max-width: 1200px) { .container { padding: 0 40px; } }
+        @media (max-width: 768px) { .container { padding: 0 24px; } }
+        
+        /* ============================================
+           NAVBAR
+        ============================================ */
+        .navbar { position: fixed; top: 0; left: 0; right: 0; background: rgba(11, 15, 20, 0.85); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(212, 175, 94, 0.15); z-index: 1000; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .navbar.scrolled { background: rgba(7, 20, 42, 0.95); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4); border-bottom-color: rgba(212, 175, 94, 0.3); }
+        .nav-content { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; transition: padding 0.4s ease; }
+        .navbar.scrolled .nav-content { padding: 12px 0; }
+        
+        .logo img { transition: all 0.3s ease; filter: drop-shadow(0 2px 10px rgba(212, 175, 94, 0.3)); }
+        .logo:hover img { transform: scale(1.05); filter: drop-shadow(0 4px 20px rgba(212, 175, 94, 0.6)); }
+        
+        .nav-menu { display: flex; gap: 12px; list-style: none; align-items: center; }
+        .nav-item { position: relative; }
+        
+        .nav-link { display: inline-block; padding: 12px 24px; color: var(--paper-white); text-decoration: none; font-weight: 600; font-size: 14px; letter-spacing: 1px; text-transform: uppercase; border-radius: 8px; transition: all 0.3s ease; position: relative; overflow: hidden; }
+        .nav-link::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(212, 175, 94, 0.2), transparent); transition: left 0.5s ease; }
+        .nav-link:hover::before { left: 100%; }
+        .nav-link:hover, .nav-link.active { background: rgba(212, 175, 94, 0.15); color: var(--gold-accent); transform: translateY(-2px); }
+        .nav-link.active { box-shadow: 0 4px 12px rgba(212, 175, 94, 0.3); }
+        
+        .has-dropdown .nav-link::after { content: '▾'; margin-left: 6px; font-size: 11px; transition: transform 0.3s ease; }
+        .has-dropdown:hover .nav-link::after { transform: rotate(180deg); }
+        
+        .dropdown-menu { position: absolute; top: calc(100% + 12px); left: 0; background: linear-gradient(135deg, rgba(26, 29, 35, 0.98) 0%, rgba(45, 49, 57, 0.98) 100%); border: 1px solid rgba(212, 175, 94, 0.25); border-radius: 12px; min-width: 240px; padding: 12px 0; opacity: 0; visibility: hidden; transform: translateY(-10px); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6); backdrop-filter: blur(10px); }
+        .nav-item:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+        
+        .dropdown-link { display: block; padding: 14px 24px; color: var(--silver-accent); text-decoration: none; font-size: 14px; font-weight: 500; letter-spacing: 0.5px; transition: all 0.3s ease; border-left: 3px solid transparent; }
+        body[dir="rtl"] .dropdown-link { border-left: none; border-right: 3px solid transparent; }
+        .dropdown-link:hover { background: rgba(212, 175, 94, 0.12); color: var(--gold-accent); border-left-color: var(--gold-accent); padding-left: 32px; }
+        body[dir="rtl"] .dropdown-link:hover { border-right-color: var(--gold-accent); padding-left: 24px; padding-right: 32px; }
+        
+        .lang-switch { display: flex; gap: 4px; padding: 6px; background: rgba(26, 29, 35, 0.6); border-radius: 8px; border: 1px solid rgba(212, 175, 94, 0.2); }
+        .lang-btn { background: none; border: none; color: var(--silver-accent); cursor: pointer; font-size: 13px; font-weight: 700; padding: 8px 16px; border-radius: 6px; transition: all 0.3s ease; }
+        .lang-btn.active { background: var(--gold-accent); color: var(--midnight-black); box-shadow: 0 4px 12px rgba(212, 175, 94, 0.4); }
+        
+        .mobile-menu-btn { display: none; background: none; border: 2px solid var(--gold-accent); cursor: pointer; padding: 8px 12px; border-radius: 8px; flex-direction: column; gap: 5px; transition: all 0.3s ease; }
+        .mobile-menu-btn span { display: block; width: 24px; height: 2px; background: var(--gold-accent); transition: all 0.3s ease; }
+        .mobile-menu-btn:hover { background: rgba(212, 175, 94, 0.1); }
+        
+        @media (max-width: 991px) {
+            .mobile-menu-btn { display: flex; }
+            .nav-menu { display: flex; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(7, 20, 42, 0.98); backdrop-filter: blur(15px); flex-direction: column; justify-content: center; align-items: center; gap: 20px; padding: 80px 20px; z-index: 999; transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1); clip-path: circle(0% at 100% 0%); opacity: 0; pointer-events: none; }
+            .nav-menu.active { clip-path: circle(150% at 100% 0%); opacity: 1; pointer-events: auto; }
+            .nav-item { width: 100%; text-align: center; }
+            .nav-link { font-size: 20px; width: 100%; display: block; }
+            .dropdown-menu { position: static; opacity: 1; visibility: visible; transform: none; background: rgba(26, 29, 35, 0.5); border: none; box-shadow: none; margin-top: 10px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+            .has-dropdown.active .dropdown-menu { max-height: 300px; }
+            .dropdown-link { text-align: center; font-size: 16px; border-left: none; border-right: none; }
+            .dropdown-link:hover { padding-left: 24px; padding-right: 24px; }
+            .lang-switch { margin-top: 20px; }
+        }
+        
+        @media (max-width: 768px) {
+            .logo img { width: 80px; height: 73px; }
+        }
+        
+        /* ============================================
+           HERO BANNER
+        ============================================ */
+        .hero-banner {
+            position: relative;
+            margin-top: 80px;
+            padding: 120px 0 80px;
+            background: linear-gradient(135deg, var(--deep-navy) 0%, var(--midnight-black) 100%);
+            overflow: hidden;
+        }
+        
+        .hero-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(212, 175, 94, 0.1) 0%, transparent 60%);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .hero-content h1 {
+            font-family: var(--font-display);
+            font-size: 64px;
+            font-weight: 800;
+            color: var(--gold-accent);
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+            text-shadow: 0 4px 20px rgba(212, 175, 94, 0.4);
+        }
+        
+        body[dir="rtl"] .hero-content h1 {
+            font-family: var(--font-arabic-display);
+        }
+        
+        .hero-content .subtitle {
+            font-size: 20px;
+            color: var(--paper-white);
+            margin-bottom: 15px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 25px;
+            font-size: 14px;
+        }
+        
+        .breadcrumb a {
+            color: var(--silver-accent);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .breadcrumb a:hover {
+            color: var(--gold-accent);
+        }
+        
+        .breadcrumb span {
+            color: var(--gold-accent);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 40px;
+            }
+            
+            .hero-content .subtitle {
+                font-size: 17px;
+            }
+        }
+        
+        /* ============================================
+           DESCRIPTION SECTION
+        ============================================ */
+        .description-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, rgba(26, 29, 35, 0.4) 0%, rgba(7, 20, 42, 0.3) 100%);
+            border-top: 1px solid rgba(212, 175, 94, 0.15);
+            border-bottom: 1px solid rgba(212, 175, 94, 0.15);
+        }
+        
+        .description-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .description-title {
+            font-family: var(--font-display);
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--gold-accent);
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+        }
+        
+        body[dir="rtl"] .description-title {
+            font-family: var(--font-arabic-display);
+        }
+        
+        .description-text {
+            font-size: 18px;
+            line-height: 2;
+            color: var(--paper-white);
+            margin-bottom: 40px;
+        }
+        
+        .features-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+        
+        .feature-item {
+            background: rgba(26, 29, 35, 0.6);
+            border: 1px solid rgba(212, 175, 94, 0.2);
+            border-radius: 15px;
+            padding: 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-item:hover {
+            background: rgba(26, 29, 35, 0.9);
+            border-color: rgba(212, 175, 94, 0.4);
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+        
+        .feature-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--gold-accent);
+            margin-bottom: 8px;
+        }
+        
+        .feature-text {
+            font-size: 14px;
+            color: var(--silver-accent);
+            line-height: 1.6;
+        }
+        
+        @media (max-width: 768px) {
+            .description-section {
+                padding: 60px 0;
+            }
+            
+            .description-title {
+                font-size: 32px;
+            }
+            
+            .description-text {
+                font-size: 16px;
+            }
+            
+            .features-list {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+        
+        /* ============================================
+           PRODUCTS SECTION
+        ============================================ */
+        .products-section {
+            padding: 80px 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-header h2 {
+            font-family: var(--font-display);
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--gold-accent);
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+        
+        body[dir="rtl"] .section-header h2 {
+            font-family: var(--font-arabic-display);
+        }
+        
+        .section-header p {
+            font-size: 16px;
+            color: var(--silver-accent);
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 35px;
+        }
+        
+        @media (max-width: 768px) {
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 25px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* ============================================
+           PRODUCT CARD - COMPACT
+        ============================================ */
+        .product-card {
+            background: linear-gradient(135deg, rgba(26, 29, 35, 0.8) 0%, rgba(7, 20, 42, 0.6) 100%);
+            border: 1px solid rgba(212, 175, 94, 0.2);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(212, 175, 94, 0.2);
+            border-color: rgba(212, 175, 94, 0.5);
+        }
+        
+        .product-image-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            background: linear-gradient(135deg, rgba(45, 49, 57, 0.6) 0%, rgba(26, 29, 35, 0.8) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card:hover .product-image {
+            transform: scale(1.1);
+        }
+        
+        .product-info {
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .product-name {
+            font-family: var(--font-display);
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--gold-accent);
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+        
+        body[dir="rtl"] .product-name {
+            font-family: var(--font-arabic-display);
+        }
+        
+        .product-flavor {
+            font-size: 14px;
+            color: var(--silver-accent);
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+        
+        .product-size {
+            font-size: 13px;
+            color: var(--paper-white);
+            font-weight: 500;
+        }
+        
+        /* ============================================
+           FOOTER
+        ============================================ */
+        .footer {
+            background: var(--charcoal);
+            border-top: 1px solid rgba(212, 175, 94, 0.1);
+            padding: 50px 0;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+        }
+        
+        .footer-bottom p {
+            color: var(--silver-accent);
+            font-size: 14px;
+        }
+        
+        /* ============================================
+           ANIMATIONS
+        ============================================ */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="index.html" class="logo"><img src="x-night-logo.png" width="110px" height="100px" alt="X-Night Logo"></a>
+                
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html#home" class="nav-link" data-en="Home" data-ar="الرئيسية">Home</a>
+                    </li>
+                    
+                    <li class="nav-item has-dropdown">
+                        <a href="#about" class="nav-link" data-en="About the Brand" data-ar="عن العلامة التجارية">About the Brand</a>
+                        <div class="dropdown-menu">
+                            <a href="brand-story-page.html" class="dropdown-link" data-en="Brand Story" data-ar="قصة العلامة التجارية">Brand Story</a>
+                            <a href="brand_vision.html" class="dropdown-link" data-en="Brand Vision" data-ar="رؤيتنا">Brand Vision</a>
+                            <a href="brand_mission.html" class="dropdown-link" data-en="Brand Mission" data-ar="رسالتنا">Brand Mission</a>
+                        </div>
+                    </li>
+                    
+                    <li class="nav-item has-dropdown">
+                        <a href="#products" class="nav-link active" data-en="Products" data-ar="المنتجات">Products</a>
+                        <div class="dropdown-menu">
+                            <a href="category-products.html" class="dropdown-link" data-en="Massage Oil" data-ar="زيت المساج">Massage Oil</a>
+                            <a href="lubricant_gel.html" class="dropdown-link" data-en="Lubricant & Massage Gel" data-ar="جل مساج و مزلقات">Lubricant & Massage Gel</a>
+                            <a href="whitening_drops.html" class="dropdown-link" data-en="Whitening Drops" data-ar="قطرات التفتيح">Whitening Drops</a>
+                        </div>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a href="contact_us.html" class="nav-link" data-en="Contact Us" data-ar="تواصل معنا">Contact Us</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a href="shop_online.html" class="nav-link" data-en="Shop Online" data-ar="تسوق منتجاتنا اونلاين">Shop Online</a>
+                    </li>
+
+                    <li>
+                        <div class="lang-switch">
+                            <button class="lang-btn active" onclick="switchLanguage('en')">EN</button>
+                            <button class="lang-btn" onclick="switchLanguage('ar')">AR</button>
+                        </div>
+                    </li>
+                </ul>
+                
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Banner -->
+    <section class="hero-banner">
+        <div class="hero-content">
+            <h1 data-en="Massage Gel & Lubricant" data-ar="جل المساج والمزلقات">Massage Gel & Lubricant</h1>
+            <p class="subtitle" data-en="Premium 2-in-1 Formula" data-ar="تركيبة ٢ في ١ فاخرة">Premium 2-in-1 Formula</p>
+            <div class="breadcrumb">
+                <a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a>
+                <span>›</span>
+                <a href="all-products.html" data-en="Products" data-ar="المنتجات">Products</a>
+                <span>›</span>
+                <span data-en="Massage Gel & Lubricant" data-ar="جل المساج والمزلقات">Massage Gel & Lubricant</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Description Section -->
+    <section class="description-section fade-in">
+        <div class="container">
+            <div class="description-content">
+                <h2 class="description-title" data-en="Premium Quality & Variety" data-ar="جودة فاخرة وتنوع">Premium Quality & Variety</h2>
+                <p class="description-text" data-en="Our massage gel & lubricant collection combines American quality with the highest specifications and quality standards. Each bottle is carefully formulated to provide the perfect balance of effectiveness and luxury." data-ar="تجمع مجموعة جل المساج والمزلقات لدينا بين الجودة الأمريكية وأعلى المواصفات ومعايير الجودة. كل زجاجة مُصاغة بعناية لتوفير التوازن المثالي بين الفعالية والفخامة.">Our massage gel & lubricant collection combines American quality with the highest specifications and quality standards. Each bottle is carefully formulated to provide the perfect balance of effectiveness and luxury.</p>
+                
+                <div class="features-list">
+                    <div class="feature-item">
+                        <div class="feature-icon">🇺🇸</div>
+                        <h3 class="feature-title" data-en="American Quality" data-ar="جودة أمريكية">American Quality</h3>
+                        <p class="feature-text" data-en="Meeting highest specifications" data-ar="تلبي أعلى المواصفات">Meeting highest specifications</p>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">🌈</div>
+                        <h3 class="feature-title" data-en="10 Flavors" data-ar="١٠ نكهات">10 Flavors</h3>
+                        <p class="feature-text" data-en="Exquisite aromatic fragrances" data-ar="روائح عطرية رائعة">Exquisite aromatic fragrances</p>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">💧</div>
+                        <h3 class="feature-title" data-en="120ml Bottle" data-ar="زجاجة ١٢٠ مل">120ml Bottle</h3>
+                        <p class="feature-text" data-en="Practical & elegant packaging" data-ar="تغليف عملي وأنيق">Practical & elegant packaging</p>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">✨</div>
+                        <h3 class="feature-title" data-en="Premium Design" data-ar="تصميم فاخر">Premium Design</h3>
+                        <p class="feature-text" data-en="Elegant & sophisticated" data-ar="أنيق ومتطور">Elegant & sophisticated</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 data-en="Our Flavors Collection" data-ar="مجموعة النكهات">Our Flavors Collection</h2>
+                <p data-en="Choose your favorite from 10 delicious options" data-ar="اختر المفضل لديك من ١٠ خيارات لذيذة">Choose your favorite from 10 delicious options</p>
+            </div>
+            
+            <div class="products-grid">
+                <!-- Product 1: Strawberry -->
+                <div class="product-card fade-in">
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1464965911861-746a04b4bca6?w=400&h=400&fit=crop" alt="Strawberry" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name" data-en="Strawberry" data-ar="فراولة">Strawberry</h3>
+                        <p class="product-flavor" data-en="Flavor: Strawberry" data-ar="النكهة: فراولة">Flavor: Strawberry</p>
+                        <p class="product-size" data-en="Size: 120ml" data-ar="الحجم: ١٢٠ مل">Size: 120ml</p>
+                    </div>
+                </div>
+
+                <!-- Product 2: Orange -->
+                <div class="product-card fade-in">
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1547514701-42782101795e?w=400&h=400&fit=crop" alt="Orange" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name" data-en="Orange" data-ar="برتقال">Orange</h3>
+                        <p class="product-flavor" data-en="Flavor: Orange" data-ar="النكهة: برتقال">Flavor: Orange</p>
+                        <p class="product-size" data-en="Size: 120ml" data-ar="الحجم: ١٢٠ مل">Size: 120ml</p>
+                    </div>
+                </div>
+
+                <!-- Product 3: Banana -->
+                <div class="product-card fade-in">
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=400&h=400&fit=crop" alt="Banana" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name" data-en="Banana" data-ar="موز">Banana</h3>
+                        <p class="product-flavor" data-en="Flavor: Banana" data-ar="النكهة: موز">Flavor: Banana</p>
+                        <p class="product-size" data-en="Size: 120ml" data-ar="الحجم: ١٢٠ مل">Size: 120ml</p>
+                    </div>
+                </div>
+
+                <!-- Product 4: Melon -->
+                <div class="product-card fade-in">
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1587049352846-4a222e784720?w=400&h=400&fit=crop" alt="Melon" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name" data-en="Melon" data-ar="شمام">Melon</h3>
+                        <p class="product-flavor" data-en="Flavor: Melon" data-ar="النكهة: شمام">Flavor: Melon</p>
+                        <p class="product-size" data-en="Size: 120ml" data-ar="الحجم: ١٢٠ مل">Size: 120ml</p>
+                    </div>
+                </div>
+
+                <!-- Product 5: Plum -->
+                <div class="product-card fade-in">
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1600881333168-2ef49b341f30?w=400&h=400&fit=crop" alt="Plum" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name" data-en="Plum" data-ar="برقوق">Plum</h3>
+                        <p class="product-flavor" data-en="Flavor: Plum" data-ar="النكهة: برقوق">Flavor: Plum</p>
+                        <p class="product-size" data-en="Size: 120ml" data-ar="الحجم: ١٢٠ مل">Size: 120ml</p>
+                    </div>
+                </div>
+
+                <!-- Product 6: Apple -->
+                <div class="product-card fade-in">
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?w=400&h=400&fit=crop" alt="Apple" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name" data-en="Apple" data-ar="تفاح">Apple</h3>
+                        <p class="product-flavor" data-en="Flavor: Apple" data-ar="النكهة: تفاح">Flavor: Apple</p>
+                        <p class="product-size" data-en="Size: 120ml" data-ar="الحجم: ١٢٠ مل">Size: 120ml</p>
+                    </div>
+                </div>
+
+                <!-- Product 7: Kiwi -->
+                <div class="product-card fade-in">
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1585059895524-72359e06133a?w=400&h=400&fit=crop" alt="Kiwi" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name" data-en="Kiwi" data-ar="كيوي">Kiwi</h3>
+                        <p class="product-flavor" data-en="Flavor: Kiwi" data-ar="النكهة: كيوي">Flavor: Kiwi</p>
+                        <p class="product-size" data-en="Size: 120ml" data-ar="الحجم: ١٢٠ مل">Size: 120ml</p>
+                    </div>
+                </div>
+
+                <!-- Product 8: Blueberry -->
+                <div class="product-card fade-in">
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1498557850523-fd3d118b962e?w=400&h=400&fit=crop" alt="Blueberry" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name" data-en="Blueberry" data-ar="توت أزرق">Blueberry</h3>
+                        <p class="product-flavor" data-en="Flavor: Blueberry" data-ar="النكهة: توت أزرق">Flavor: Blueberry</p>
+                        <p class="product-size" data-en="Size: 120ml" data-ar="الحجم: ١٢٠ مل">Size: 120ml</p>
+                    </div>
+                </div>
+
+                <!-- Product 9: Blackberry -->
+                <div class="product-card fade-in">
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1577069861033-55d04cec4ef5?w=400&h=400&fit=crop" alt="Blackberry" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name" data-en="Blackberry" data-ar="توت أسود">Blackberry</h3>
+                        <p class="product-flavor" data-en="Flavor: Blackberry" data-ar="النكهة: توت أسود">Flavor: Blackberry</p>
+                        <p class="product-size" data-en="Size: 120ml" data-ar="الحجم: ١٢٠ مل">Size: 120ml</p>
+                    </div>
+                </div>
+
+                <!-- Product 10: Dragon Fruit -->
+                <div class="product-card fade-in">
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1527325678964-54921661f888?w=400&h=400&fit=crop" alt="Dragon Fruit" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name" data-en="Dragon Fruit" data-ar="فاكهة التنين">Dragon Fruit</h3>
+                        <p class="product-flavor" data-en="Flavor: Dragon Fruit" data-ar="النكهة: فاكهة التنين">Flavor: Dragon Fruit</p>
+                        <p class="product-size" data-en="Size: 120ml" data-ar="الحجم: ١٢٠ مل">Size: 120ml</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p data-en="© 2026 X-Night. All rights reserved. | Premium Intimate Care" data-ar="© 2026 X-Night. جميع الحقوق محفوظة. | عناية حميمة فاخرة">
+                    © 2026 X-Night. All rights reserved. | Premium Intimate Care
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Language switching
+        let currentLang = 'en';
+        
+        function switchLanguage(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang;
+            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+            
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            document.querySelectorAll('[data-en]').forEach(el => {
+                const text = el.getAttribute(`data-${lang}`);
+                if (text) {
+                    el.textContent = text;
+                }
+            });
+        }
+        
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const navMenu = document.querySelector('.nav-menu');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            navMenu.classList.toggle('active');
+            menuBtn.classList.toggle('active');
+        }
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        });
+        
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

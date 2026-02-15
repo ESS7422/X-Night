@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Products | X-Night Premium Intimate Care</title>
+    <meta name="description" content="Explore X-Night's complete range of premium intimate care products">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Cormorant+Garamond:wght@300;400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Noto+Sans+Arabic:wght@300;400;500;600;700&family=Noto+Serif+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --midnight-black: #0B0F14;
+            --deep-navy: #07142A;
+            --gold-accent: #d4af5e;
+            --silver-accent: #BFC7CD;
+            --paper-white: #E6E9EE;
+            --pure-white: #FFFFFF;
+            --charcoal: #1A1D23;
+            --dark-grey: #2D3139;
+            --font-display: 'Playfair Display', serif;
+            --font-body: 'IBM Plex Sans', sans-serif;
+            --font-arabic-display: 'Noto Serif Arabic', serif;
+            --font-arabic-body: 'Noto Sans Arabic', sans-serif;
+        }
+        
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); background: var(--midnight-black); color: var(--paper-white); line-height: 1.7; overflow-x: hidden; }
+        body[dir="rtl"] { font-family: var(--font-arabic-body); }
+        
+        .container { max-width: 1440px; margin: 0 auto; padding: 0 80px; }
+        @media (max-width: 1200px) { .container { padding: 0 40px; } }
+        @media (max-width: 768px) { .container { padding: 0 24px; } }
+        
+        /* ============================================
+           NAVBAR - DESKTOP & MOBILE
+        ============================================ */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(11, 15, 20, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(212, 175, 94, 0.15);
+            z-index: 1000;
+            transition: all 0.4s ease;
+        }
+        
+        .navbar.scrolled {
+            background: rgba(7, 20, 42, 0.95);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            border-bottom-color: rgba(212, 175, 94, 0.3);
+        }
+        
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            transition: padding 0.4s ease;
+        }
+        
+        .navbar.scrolled .nav-content {
+            padding: 12px 0;
+        }
+        
+        .logo img {
+            transition: all 0.3s ease;
+            filter: drop-shadow(0 2px 10px rgba(212, 175, 94, 0.3));
+        }
+        
+        .logo:hover img {
+            transform: scale(1.05);
+            filter: drop-shadow(0 4px 20px rgba(212, 175, 94, 0.6));
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 12px;
+            list-style: none;
+            align-items: center;
+        }
+        
+        .nav-item {
+            position: relative;
+        }
+        
+        .nav-link {
+            display: inline-block;
+            padding: 12px 24px;
+            color: var(--paper-white);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover,
+        .nav-link.active {
+            background: rgba(212, 175, 94, 0.15);
+            color: var(--gold-accent);
+        }
+        
+        .has-dropdown .nav-link::after {
+            content: '▾';
+            margin-left: 6px;
+            font-size: 11px;
+            transition: transform 0.3s ease;
+        }
+        
+        .has-dropdown:hover .nav-link::after {
+            transform: rotate(180deg);
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: calc(100% + 12px);
+            left: 0;
+            background: linear-gradient(135deg, rgba(26, 29, 35, 0.98) 0%, rgba(45, 49, 57, 0.98) 100%);
+            border: 1px solid rgba(212, 175, 94, 0.25);
+            border-radius: 12px;
+            min-width: 240px;
+            padding: 12px 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+        }
+        
+        .nav-item:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown-link {
+            display: block;
+            padding: 14px 24px;
+            color: var(--silver-accent);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+        
+        .dropdown-link:hover {
+            background: rgba(212, 175, 94, 0.12);
+            color: var(--gold-accent);
+            border-left-color: var(--gold-accent);
+            padding-left: 32px;
+        }
+        
+        .lang-switch {
+            display: flex;
+            gap: 4px;
+            padding: 6px;
+            background: rgba(26, 29, 35, 0.6);
+            border-radius: 8px;
+            border: 1px solid rgba(212, 175, 94, 0.2);
+        }
+        
+        .lang-btn {
+            background: none;
+            border: none;
+            color: var(--silver-accent);
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+        
+        .lang-btn.active {
+            background: var(--gold-accent);
+            color: var(--midnight-black);
+        }
+        
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: 2px solid var(--gold-accent);
+            cursor: pointer;
+            padding: 8px 12px;
+            border-radius: 8px;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .mobile-menu-btn span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--gold-accent);
+            transition: all 0.3s ease;
+        }
+        
+        /* Mobile Styles */
+        @media (max-width: 991px) {
+            .logo img {
+                width: 90px;
+                height: 82px;
+            }
+            
+            .mobile-menu-btn {
+                display: flex;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: rgba(7, 20, 42, 0.98);
+                backdrop-filter: blur(15px);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 20px;
+                padding: 80px 20px;
+                z-index: 999;
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.5s ease;
+            }
+            
+            .nav-menu.active {
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .nav-item {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .nav-link {
+                font-size: 20px;
+                width: 100%;
+                display: block;
+            }
+            
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                background: rgba(26, 29, 35, 0.5);
+                border: none;
+                box-shadow: none;
+                margin-top: 10px;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+            }
+            
+            .has-dropdown.open .dropdown-menu {
+                max-height: 300px;
+            }
+            
+            .dropdown-link {
+                text-align: center;
+                font-size: 16px;
+                border-left: none;
+            }
+            
+            .dropdown-link:hover {
+                padding-left: 24px;
+            }
+            
+            .lang-switch {
+                margin-top: 20px;
+            }
+        }
+        
+        /* Hero */
+        .hero { min-height: 60vh; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--deep-navy) 0%, var(--midnight-black) 100%); padding: 150px 0 80px; position: relative; overflow: hidden; }
+        .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 30% 20%, rgba(212, 175, 94, 0.12) 0%, transparent 60%); animation: pulse 8s ease-in-out infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
+        .hero-content { position: relative; z-index: 2; text-align: center; }
+        .hero-title { font-family: var(--font-display); font-size: clamp(48px, 6vw, 72px); font-weight: 800; margin-bottom: 24px; background: linear-gradient(135deg, var(--pure-white) 0%, var(--gold-accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        body[dir="rtl"] .hero-title { font-family: var(--font-arabic-display); }
+        .hero-subtitle { font-size: clamp(18px, 2.5vw, 22px); color: var(--silver-accent); max-width: 700px; margin: 0 auto; }
+        
+        /* Category Sections */
+        .category-section { padding: 100px 0; position: relative; }
+        .category-section:nth-child(odd) { background: var(--midnight-black); }
+        .category-section:nth-child(even) { background: var(--deep-navy); }
+        
+        .category-header { text-align: center; margin-bottom: 60px; }
+        .category-label { display: inline-block; font-size: 14px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--gold-accent); margin-bottom: 16px; padding: 8px 20px; background: rgba(212, 175, 94, 0.1); border-radius: 20px; border: 1px solid rgba(212, 175, 94, 0.3); }
+        .category-title { font-family: var(--font-display); font-size: clamp(40px, 5vw, 56px); font-weight: 800; color: var(--pure-white); margin-bottom: 20px; line-height: 1.2; }
+        body[dir="rtl"] .category-title { font-family: var(--font-arabic-display); }
+        .category-description { font-size: 17px; color: var(--silver-accent); line-height: 1.8; max-width: 800px; margin: 0 auto 16px; }
+        .category-flavors { font-size: 16px; color: var(--gold-accent); font-weight: 600; margin-top: 12px; }
+        
+        /* Products Grid */
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 50px; margin-top: 60px; }
+        @media (max-width: 768px) { .products-grid { grid-template-columns: 1fr; gap: 40px; } }
+        
+        /* Product Card */
+       .product-card { 
+    background: linear-gradient(135deg, rgba(26, 29, 35, 0.8), rgba(45, 49, 57, 0.6)); 
+    border-radius: 24px; 
+    overflow: hidden; 
+    position: relative; 
+    transition: all 0.5s ease; 
+    border: 2px solid transparent; 
+    display: flex;         /* إضافة flex لضمان ترتيب العناصر */
+    flex-direction: column; 
+}
+
+.product-card:hover { 
+    border-color: var(--gold-accent); 
+    transform: translateY(-12px); 
+    box-shadow: 0 30px 70px rgba(212, 175, 94, 0.2); 
+}
+
+/* تعديل هذا الجزء هو السر */
+.product-image-wrapper { 
+    position: relative; 
+    height: auto;          /* تغيير من 320px إلى auto ليأخذ طول الصورة */
+    width: 100%;
+    overflow: hidden; 
+    background: linear-gradient(135deg, rgba(212, 175, 94, 0.15), rgba(191, 199, 205, 0.1)); 
+}
+
+.product-image { 
+    width: 100%; 
+    height: auto;          /* جعل الارتفاع تلقائي */
+    display: block;        /* حذف الفراغات الصغيرة تحت الصور */
+}
+
+.product-image img {
+    width: 100%;
+    height: auto;          /* لضمان الحفاظ على أبعاد الصورة الطولية */
+    display: block;
+    object-fit: contain;   /* لإظهار كامل تفاصيل الصورة */
+}
+
+.product-badge { 
+    position: absolute; 
+    top: 20px; 
+    right: 20px; 
+    z-index: 10;           /* لضمان ظهور البادج فوق الصورة */
+    background: linear-gradient(135deg, var(--gold-accent), #c49d4a); 
+    color: var(--midnight-black); 
+    padding: 8px 20px; 
+    font-size: 12px; 
+    font-weight: 800; 
+    letter-spacing: 1.5px; 
+    text-transform: uppercase; 
+    border-radius: 6px; 
+    box-shadow: 0 4px 15px rgba(212, 175, 94, 0.4); 
+}
+
+body[dir="rtl"] .product-badge { 
+    right: auto; 
+    left: 20px; 
+}
+        .product-info { padding: 36px 32px; }
+        .product-name { font-family: var(--font-display); font-size: 24px; font-weight: 700; color: var(--pure-white); margin-bottom: 12px; line-height: 1.3; }
+        body[dir="rtl"] .product-name { font-family: var(--font-arabic-display); }
+        .product-size { font-size: 16px; color: var(--gold-accent); font-weight: 600; letter-spacing: 0.5px; }
+        .product-desc { font-size: 15px; color: var(--silver-accent); line-height: 1.8; margin-bottom: 24px; }
+        .product-features { list-style: none; margin-bottom: 28px; }
+        .product-features li { padding: 8px 0 8px 28px; color: var(--silver-accent); font-size: 14px; position: relative; }
+        body[dir="rtl"] .product-features li { padding: 8px 28px 8px 0; }
+        .product-features li::before { content: '✓'; position: absolute; left: 0; color: var(--gold-accent); font-weight: 700; font-size: 16px; }
+        body[dir="rtl"] .product-features li::before { left: auto; right: 0; }
+        
+        .product-cta { display: inline-flex; align-items: center; gap: 10px; padding: 14px 32px; background: transparent; border: 2px solid var(--gold-accent); border-radius: 10px; color: var(--gold-accent); text-decoration: none; font-weight: 700; font-size: 14px; letter-spacing: 1px; text-transform: uppercase; transition: all 0.3s ease; }
+        .product-cta::after { content: '→'; font-size: 18px; transition: transform 0.3s ease; }
+        body[dir="rtl"] .product-cta::after { content: '←'; }
+        .product-cta:hover { background: var(--gold-accent); color: var(--midnight-black); transform: translateX(4px); box-shadow: 0 8px 25px rgba(212, 175, 94, 0.4); }
+        .product-cta:hover::after { transform: translateX(4px); }
+        body[dir="rtl"] .product-cta:hover { transform: translateX(-4px); }
+        body[dir="rtl"] .product-cta:hover::after { transform: translateX(-4px); }
+        
+        /* Explore Button */
+        .explore-category-btn { display: inline-flex; align-items: center; gap: 12px; padding: 18px 48px; background: linear-gradient(135deg, var(--gold-accent), #c49d4a); color: var(--midnight-black); text-decoration: none; font-weight: 700; font-size: 16px; letter-spacing: 1px; text-transform: uppercase; border-radius: 12px; transition: all 0.3s ease; box-shadow: 0 8px 24px rgba(212, 175, 94, 0.4); margin: 50px auto 0; }
+        .explore-category-btn::after { content: '→'; font-size: 20px; transition: transform 0.3s ease; }
+        body[dir="rtl"] .explore-category-btn::after { content: '←'; }
+        .explore-category-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(212, 175, 94, 0.6); }
+        .explore-category-btn:hover::after { transform: translateX(4px); }
+        body[dir="rtl"] .explore-category-btn:hover::after { transform: translateX(-4px); }
+        .category-footer { text-align: center; margin-top: 50px; }
+        
+        /* Featured Product Section - For Single Whitening Drops */
+        .featured-product-section { padding: 120px 0; background: linear-gradient(135deg, var(--midnight-black) 0%, var(--deep-navy) 100%); position: relative; overflow: hidden; }
+        .featured-product-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 50% 50%, rgba(212, 175, 94, 0.08) 0%, transparent 70%); }
+        
+        .featured-product { max-width: 1200px; margin: 0 auto; background: linear-gradient(135deg, rgba(26, 29, 35, 0.9), rgba(45, 49, 57, 0.7)); border: 2px solid rgba(212, 175, 94, 0.3); border-radius: 32px; overflow: hidden; position: relative; }
+        .featured-product-content { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; padding: 80px; }
+        @media (max-width: 991px) { .featured-product-content { grid-template-columns: 1fr; gap: 50px; padding: 60px 40px; } }
+        
+        .featured-image { position: relative; height: 500px; background: linear-gradient(135deg, rgba(212, 175, 94, 0.2), rgba(191, 199, 205, 0.15)); border-radius: 24px; display: flex; align-items: center; justify-content: center; border: 2px solid rgba(212, 175, 94, 0.3); }
+        .featured-image-icon { font-size: 180px;  }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+        .featured-badge { position: absolute; top: 30px; right: 30px; background: linear-gradient(135deg, var(--gold-accent), #c49d4a); color: var(--midnight-black); padding: 12px 28px; font-size: 14px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; border-radius: 8px; box-shadow: 0 6px 20px rgba(212, 175, 94, 0.5); }
+        
+        .featured-info { position: relative; z-index: 2; }
+        .featured-label { font-size: 14px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--gold-accent); margin-bottom: 20px; display: inline-block; padding: 8px 20px; background: rgba(212, 175, 94, 0.12); border-radius: 20px; }
+        .featured-title { font-family: var(--font-display); font-size: clamp(36px, 5vw, 56px); font-weight: 800; color: var(--pure-white); margin-bottom: 24px; line-height: 1.2; }
+        body[dir="rtl"] .featured-title { font-family: var(--font-arabic-display); }
+        .featured-desc { font-size: 18px; color: var(--silver-accent); line-height: 1.9; margin-bottom: 32px; }
+        .featured-highlights { list-style: none; margin-bottom: 40px; }
+        .featured-highlights li { padding: 12px 0 12px 32px; color: var(--paper-white); font-size: 16px; position: relative; font-weight: 500; }
+        body[dir="rtl"] .featured-highlights li { padding: 12px 32px 12px 0; }
+        .featured-highlights li::before { content: '★'; position: absolute; left: 0; color: var(--gold-accent); font-size: 18px; }
+        body[dir="rtl"] .featured-highlights li::before { left: auto; right: 0; }
+        
+        .featured-cta { display: inline-flex; align-items: center; gap: 14px; padding: 20px 48px; background: linear-gradient(135deg, var(--gold-accent), #c49d4a); color: var(--midnight-black); text-decoration: none; font-weight: 700; font-size: 17px; letter-spacing: 1px; text-transform: uppercase; border-radius: 12px; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(212, 175, 94, 0.5); }
+        .featured-cta::after { content: '→'; font-size: 22px; transition: transform 0.3s ease; }
+        body[dir="rtl"] .featured-cta::after { content: '←'; }
+        .featured-cta:hover { transform: translateY(-4px); box-shadow: 0 15px 45px rgba(212, 175, 94, 0.7); }
+        .featured-cta:hover::after { transform: translateX(6px); }
+        body[dir="rtl"] .featured-cta:hover::after { transform: translateX(-6px); }
+        
+        /* Footer */
+        .footer { background: var(--charcoal); border-top: 1px solid rgba(212, 175, 94, 0.1); padding: 60px 0 40px; text-align: center; }
+        .footer p { color: var(--silver-accent); font-size: 14px; }
+        
+        /* Animations */
+       
+         /* ============================================
+           INTRO FEATURES
+        ============================================ */
+        .intro-features {
+            padding: var(--section-padding) 0;
+            background: linear-gradient(135deg, rgba(26, 29, 35, 0.4) 0%, rgba(7, 20, 42, 0.3) 100%);
+            border-top: 1px solid rgba(212, 175, 94, 0.15);
+            border-bottom: 1px solid rgba(212, 175, 94, 0.15);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+        
+        .feature-box {
+            background: rgba(26, 29, 35, 0.6);
+            border: 1px solid rgba(212, 175, 94, 0.2);
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+        
+        .feature-box:hover {
+            background: rgba(26, 29, 35, 0.9);
+            border-color: rgba(212, 175, 94, 0.4);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(212, 175, 94, 0.15);
+        }
+        
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .feature-title {
+            font-family: var(--font-display);
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--gold-accent);
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+        
+        body[dir="rtl"] .feature-title {
+            font-family: var(--font-arabic-display);
+        }
+        
+        .feature-text {
+            font-size: 15px;
+            color: var(--silver-accent);
+            line-height: 1.7;
+        }
+        .product-image {
+            min-width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        /* تنسيق الحاوية الخارجية للصور لتصبح طولية */
+.product-image-wrapper {
+    position: relative;
+    width: 100%;
+    /* تحديد نسبة العرض إلى الارتفاع (2 عرض : 3 طول) لضمان الشكل الطولي */
+    aspect-ratio: 2 / 3; 
+    overflow: hidden;
+    background-color: #0a0a0a; /* لون خلفية احتياطي */
+    border-radius: 12px 12px 0 0; /* زوايا دائرية من الأعلى فقط */
+}
+
+/* تنسيق الصورة داخل الحاوية */
+.product-image {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    /* أهم خاصية: تجعل الصورة تغطي المساحة الطولية دون تمطيط */
+    object-fit: cover; 
+    object-position: center;
+    transition: transform 0.5s ease;
+}
+
+/* حركة الزوم عند تمرير الماوس */
+.product-card:hover .product-image img {
+    transform: scale(1.08);
+}
+
+/* تنسيق كارت المنتج ككل لضمان التناسق */
+.product-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* لتوحيد ارتفاع الكروت في الشبكة */
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(212, 175, 94, 0.1);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+/* تنسيق الحاوية الكبيرة للمنتج المميز */
+.featured-image {
+    position: relative;
+    width: 100%;
+    /* ترك الارتفاع يتحدد بناءً على طول الصورة */
+    height: auto; 
+    border-radius: 30px;
+    overflow: hidden;
+    background: rgba(212, 175, 94, 0.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* تنسيق الحاوية الداخلية للصورة */
+.featured-image-icon {
+    width: 100%;
+    height: auto; /* لضمان عدم تقييد الارتفاع */
+    display: flex;
+    align-items: flex-start; /* لبدء الصورة من الأعلى */
+}
+
+/* تنسيق الصورة نفسها لتظهر بمقاسها الطبيعي الطولي */
+.featured-image-icon img {
+    width: 100%;
+    height: auto; /* يجعلها تأخذ طولها الطبيعي بالكامل */
+    display: block;
+    object-fit: contain; /* يضمن عدم قص أي جزء من جوانب الصورة */
+    transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+/* تأثير بسيط عند تمرير الماوس لجعل العرض فخماً */
+.featured-product:hover .featured-image-icon img {
+    transform: scale(1.03);
+}
+
+/* ضبط البادج ليكون فوق الصورة الطولية بشكل صحيح */
+.featured-badge {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    z-index: 5;
+    background: var(--gold-accent);
+    color: #000;
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+            /* ============================================
+           FOOTER
+        ============================================ */
+      footer {
+    width: 100vw; /* يستخدم عرض نافذة المتصفح بالكامل */
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+            background: linear-gradient(135deg, var(--midnight-black) 0%, var(--deep-navy) 100%);
+    padding: 60px 0;
+}
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+        
+        .footer-column h4 {
+            font-family: var(--font-display);
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--gold-accent);
+            margin-bottom: 24px;
+        }
+        
+        body[dir="rtl"] .footer-column h4 {
+            font-family: var(--font-arabic-display);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: var(--silver-accent);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+        
+        .footer-links a:hover {
+            color: var(--gold-accent);
+            padding-left: 8px;
+        }
+        
+        body[dir="rtl"] .footer-links a:hover {
+            padding-left: 0;
+            padding-right: 8px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(212, 175, 94, 0.1);
+            color: var(--silver-accent);
+            font-size: 14px;
+        }
+        
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+   <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="D:\x-night\x-night-final-updated.html" class="logo" ><img src="D:\x-night\x night logo-02.png" width="110px" height="100px" alt=""></a>
+                
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="D:\x-night\x-night-final-updated.html" class="nav-link active" data-en="Home" data-ar="الرئيسية">Home</a>
+                    </li>
+                    
+                    <li class="nav-item has-dropdown">
+                        <a href="D:\x-night\about brand\about_brand.html" class="nav-link" data-en="About the Brand" data-ar="عن العلامة التجارية">About the Brand</a>
+                        <div class="dropdown-menu">
+                            <a href="D:\x-night\about brand\brand_story.html" class="dropdown-link" data-en="Brand Story" data-ar="قصة العلامة التجارية">Brand Story</a>
+                            <a href="D:\x-night\about brand\brand_vision.html" class="dropdown-link" data-en="Brand Vision" data-ar="رؤيتنا">Brand Vision</a>
+                            <a href="D:\x-night\about brand\brand_mission.html" class="dropdown-link" data-en="Brand Mission" data-ar="رسالتنا">Brand Mission</a>
+                        </div>
+                    </li>
+                    
+                    <li class="nav-item has-dropdown">
+                        <a href="D:\x-night\products\all_products.html" class="nav-link" data-en="Products" data-ar="المنتجات">Products</a>
+                        <div class="dropdown-menu">
+                            <a href="D:\x-night\products\massage.oil.html" class="dropdown-link" data-en="Massage Oil" data-ar="زيت المساج">Massage Oil</a>
+                            <a href="D:\x-night\products\lubricant_gel.html" class="dropdown-link" data-en="Lubricant & Massage Gel" data-ar="جل مساج و مزلقات">Lubricant & Massage Gel</a>
+                            <a href="D:\x-night\products\whitening_drops.html" class="dropdown-link" data-en="Whitening Drops" data-ar="قطرات التفتيح">Whitening Drops</a>
+                        </div>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a href="D:\x-night\contact us\contact_us.html" class="nav-link" data-en="Contact Us" data-ar="تواصل معنا">Contact Us</a>
+                    </li>
+                     <li class="nav-item">
+                        <a href="D:\x-night\shop_online.html" class="nav-link" data-en="shop Online" data-ar="تسوق منتجاتنا اونلاين">shop Online</a>
+                    </li>
+
+                    <li class="lang-item">
+                        <div class="lang-switch">
+                            <button class="lang-btn active" onclick="switchLanguage('en')">EN</button>
+                            <button class="lang-btn" onclick="switchLanguage('ar')">AR</button>
+                        </div>
+                    </li>
+                </ul>      
+                            <button class="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title" data-en="Our Products" data-ar="منتجاتنا">Our Products</h1>
+                <p class="hero-subtitle" data-en="Premium intimate care solutions for every need" data-ar="حلول رعاية حميمة فاخرة لكل احتياج">Premium intimate care solutions for every need</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Intro Features -->
+    <section class="intro-features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-box fade-in">
+                    <div class="feature-icon">✨</div>
+                    <h3 class="feature-title" data-en="Safe & Gentle" data-ar="آمنة ولطيفة">Safe & Gentle</h3>
+                    <p class="feature-text" data-en="Carefully selected ingredients, free from harsh substances like parabens" data-ar="مكونات مختارة بعناية فائقة، خالية من المواد القاسية مثل البارابين">Carefully selected ingredients, free from harsh substances like parabens</p>
+                </div>
+                
+                <div class="feature-box fade-in">
+                    <div class="feature-icon">⚖️</div>
+                    <h3 class="feature-title" data-en="pH Balanced" data-ar="متوازنة الحموضة">pH Balanced</h3>
+                    <p class="feature-text" data-en="All intimate care products designed to be fully compatible with the natural balance of skin and sensitive areas" data-ar="جميع منتجات العناية الحميمية مصممة لتكون متوافقة تمامًا مع التوازن الطبيعي للبشرة والمناطق الحساسة">All intimate care products designed to be fully compatible with the natural balance of skin and sensitive areas</p>
+                </div>
+                
+                <div class="feature-box fade-in">
+                    <div class="feature-icon">🔬</div>
+                    <h3 class="feature-title" data-en="Proven Effectiveness" data-ar="فعالية مثبتة">Proven Effectiveness</h3>
+                    <p class="feature-text" data-en="We rely on active ingredients with proven efficacy in moisturizing and nourishment, such as natural oils and botanical extracts." data-ar="مكونات نشطة أثبتت فعاليتها في الترطيب والتغذية، مثل الزيوت الطبيعية والمستخلصات النباتية">We rely on active ingredients with proven efficacy in moisturizing and nourishment, such as natural oils and botanical extracts.
+</p>
+                </div>
+                
+                <div class="feature-box fade-in">
+                    <div class="feature-icon">🏆</div>
+                    <h3 class="feature-title" data-en="High Quality Standards" data-ar="معايير جودة عالية">High Quality Standards</h3>
+                    <p class="feature-text" data-en="All our products are manufactured in facilities certified for quality assurance and Good Manufacturing Practices (GMP), ensuring the highest levels of hygiene and quality control" data-ar="يتم تصنيع جميع منتجاتنا في منشآت حاصلة على شهادات ISO مما يضمن أعلى مستويات النظافة والتحكم في الجودة">All our products are manufactured in facilities certified for quality assurance and Good Manufacturing Practices (GMP), ensuring the highest levels of hygiene and quality control</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category 1: Massage Oils -->
+    <section class="category-section">
+        <div class="container">
+            <div class="category-header fade-in">
+                <span class="category-label" data-en="Category 01" data-ar="الفئة 01">Category 01</span>
+                <h2 class="category-title" data-en="Luxury Massage Oils 4×1" data-ar="زيوت المساج الفاخرة 4×1">Luxury Massage Oils 4×1</h2>
+                <p class="category-description" data-en="For those seeking a pure massage oil that focuses on relaxation & skin nourishment and provides an exceptional sensory experience." data-ar="زيوت مساج نقية تركز على الاسترخاء وتغذية البشرة وتجربة حسية. مصنوعة من مكونات طبيعية فاخرة للمسة فاخرة.">For those seeking a pure massage oil that focuses on relaxation & skin nourishment and provides an exceptional sensory experience.</p>
+                <p class="category-flavors" data-en="✨ Available in 10 enchanting aromatic flavors" data-ar="✨ متوفر ب 10 نكهات عطرية ساحرة">✨ Available in 10 enchanting aromatic flavors</p>
+            </div>
+            
+            <div class="products-grid">
+                <div class="product-card fade-in">
+                    <div class="product-image-wrapper">
+                        <span class="product-badge" data-en="POPULAR" data-ar="مشهور">POPULAR</span>
+                        <div class="product-image" ><img src="D:\x-night\imges\WhatsApp Image 2026-02-03 at 1.25.52 PM (1).jpeg" alt=""></div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name" data-en="Sensual Rose Oil" data-ar="زيت الورد الحسي">Sensual Rose Oil</h3>
+                        <p class="product-size" data-en="Size: 100ml" data-ar="الحجم: 100 مل">Size: 100ml</p>
+                    </div>
+                </div>
+                
+                <div class="product-card fade-in">
+                    <div class="product-image-wrapper">
+                        <span class="product-badge" data-en="POPULAR" data-ar="مشهور">POPULAR</span>
+                        <div class="product-image" ><img src="D:\x-night\imges\WhatsApp Image 2026-02-03 at 1.25.52 PM (1).jpeg" alt=""></div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name" data-en="Lavender Dream Oil" data-ar="زيت حلم اللافندر">Lavender Dream Oil</h3>
+                        <p class="product-size" data-en="Size: 100ml" data-ar="الحجم: 100 مل">Size: 100ml</p>
+                    </div>
+                </div>
+                
+                <div class="product-card fade-in">
+                     <div class="product-image-wrapper">
+                        <span class="product-badge" data-en="POPULAR" data-ar="مشهور">POPULAR</span>
+                        <div class="product-image" ><img src="D:\x-night\imges\WhatsApp Image 2026-02-03 at 1.25.52 PM (1).jpeg" alt=""></div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name" data-en="Citrus Energy Oil" data-ar="زيت طاقة الحمضيات">Citrus Energy Oil</h3>
+                        <p class="product-size" data-en="Size: 100ml" data-ar="الحجم: 100 مل">Size: 100ml</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="category-footer">
+                <a href="D:\x-night\products\massage_oil.html" class="explore-category-btn" data-en="Explore Massage Oils" data-ar="استكشف زيوت المساج">Explore Massage Oils</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category 2: Massage & Lubricant Gel -->
+    <section class="category-section">
+        <div class="container">
+            <div class="category-header fade-in">
+                <span class="category-label" data-en="Category 02" data-ar="الفئة 02">Category 02</span>
+                <h2 class="category-title" data-en="Massage & Lubricant Gel 4×1" data-ar="جل للمساج ومزلق 4×1">Massage & Lubricant Gel 4×1</h2>
+                <p class="category-description" data-en="Used for massage and relaxation, it also acts as a long-lasting intimate lubricant, providing a luxurious sensory experience." data-ar="جل ثنائي الاستخدام للمساج والحميمية. تركيبة مائية طويلة الأمد توفر تجربة حسية فاخرة مع أمان كامل.">Used for massage and relaxation, it also acts as a long-lasting intimate lubricant, providing a luxurious sensory experience.</p>
+                <p class="category-flavors" data-en="✨ Available in 10 enchanting aromatic flavors" data-ar="✨ متوفر ب 10 نكهات عطرية ساحرة">✨ Available in 10 enchanting aromatic flavors</p>
+            </div>
+            
+            <div class="products-grid">
+                <div class="product-card fade-in">
+                    <div class="product-image-wrapper">
+                        <span class="product-badge" data-en="BEST SELLER" data-ar="الأكثر مبيعًا">BEST SELLER</span>
+                        <div class="product-image"><img src="D:\x-night\imges\WhatsApp Image 2026-02-03 at 1.25.49 PM.jpeg" alt=""></div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name" data-en="Silky Touch Dual Gel" data-ar="جل اللمسة الحريرية">Silky Touch Dual Gel</h3>
+                        <p class="product-size" data-en="Size: 100ml" data-ar="الحجم: 100 مل">Size: 100ml</p>
+                    </div>
+                </div>
+                
+                <div class="product-card fade-in">
+                    <div class="product-image-wrapper">
+                        <span class="product-badge" data-en="POPULAR" data-ar="مشهور">POPULAR</span>
+                        <div class="product-image"><img src="D:\x-night\imges\WhatsApp Image 2026-02-03 at 1.25.52 PM (1).jpeg" alt=""></div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name" data-en="Cherry Blossom Gel" data-ar="جل زهرة الكرز">Cherry Blossom Gel</h3>
+                        <p class="product-size" data-en="Size: 100ml" data-ar="الحجم: 100 مل">Size: 100ml</p>
+                    </div>
+                </div>
+                
+                <div class="product-card fade-in">
+                    <div class="product-image-wrapper">
+                        <span class="product-badge" data-en="NEW" data-ar="جديد">NEW</span>
+                        <div class="product-image"><img src="D:\x-night\imges\WhatsApp Image 2026-02-03 at 1.25.49 PM (1).jpeg" alt=""></div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name" data-en="Warming Bliss Gel" data-ar="جل النعيم الدافئ">Warming Bliss Gel</h3>
+                        <p class="product-size" data-en="Size: 100ml" data-ar="الحجم: 100 مل">Size: 100ml</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="category-footer">
+                <a href="D:\x-night\products\lubricant_gel.html" class="explore-category-btn" data-en="Explore Massage Gels" data-ar="استكشف جل المساج">Explore Massage Gels</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Product: Whitening Drops -->
+    <section class="featured-product-section">
+        <div class="container">
+            <div class="category-header fade-in" style="margin-bottom: 80px;">
+                <span class="category-label" data-en="Category 03" data-ar="الفئة 03">Category 03</span>
+                <h2 class="category-title" data-en="Whitening Drops" data-ar="العناية الحميمة المتخصصة">Whitening Drops</h2>
+                <p class="category-description" data-en="American quality, meeting the highest specifications & quality standards." data-ar="محلول تفتيح متقدم مُصمم خصيصًا للمناطق الحميمة. آمن وفعال ومختبر سريريًا للبشرة الحساسة.">American quality, meeting the highest specifications & quality standards.</p>
+            </div>
+            
+            <div class="featured-product fade-in">
+                <div class="featured-product-content">
+                    <div class="featured-image">
+                        <div class="featured-image-icon"><img src="D:\x-night\imges\WhatsApp Image 2026-02-08 at 10.02.34 AM (1).jpeg"  alt=""></div>
+                    </div>
+                    
+                    <div class="featured-info">
+                        <span class="featured-label" data-en="Featured Product" data-ar="منتج مميز">Featured Product</span>
+                        <h3 class="featured-title" data-en="Whitening Drops" data-ar="قطرات الإشراقة المضيئة">Whitening Drops</h3>
+                        <p class="featured-desc" data-en="A specially formulated product for safely and effectively brightening and evening out the tone of sensitive areas. It utilizes a blend of gentle exfoliating acids and advanced brightening compounds, along with moisturizing and nourishing ingredients that help renew the skin, reduce pigmentation, and leave it smooth, healthy and even-toned." data-ar="محلولنا الفاخر لتفتيح المناطق الحميمة يجمع بين تقنية فيتامين C المتقدمة والمستخلصات الطبيعية. تركيبة مختبرة سريريًا مصممة لتوحيد لون البشرة بأمان وفعالية للمناطق الحساسة.">A specially formulated product for safely and effectively brightening and evening out the tone of sensitive areas. It utilizes a blend of gentle exfoliating acids and advanced brightening compounds, along with moisturizing and nourishing ingredients that help renew the skin, reduce pigmentation, and leave it smooth, healthy and even-toned.</p>
+                        
+                        <ul class="featured-highlights">
+                            <li data-en="5D Brightening" data-ar="معزز بفيتامين C والمستخلصات الطبيعية">5D Brightening</li>
+                            <li data-en="Professional Exfoliation & Renewal" data-ar="آمن للمناطق الحميمة الحساسة">Professional Exfoliation & Renewal</li>
+                            <li data-en="Vitamin Boost" data-ar="نتائج مرئية في 2-4 أسابيع">Vitamin Boost</li>
+                            <li data-en="Superior Hydration & Protection" data-ar="مختبر جلديًا ومتوازن الحموضة">Superior Hydration & Protection</li>
+                            <li data-en="Enriched with Natural Oils & Extracts" data-ar="مضاد للحساسية وخالي من البارابين">Enriched with Natural Oils & Extracts</li>
+                        </ul>
+                        
+                        <a href="D:\x-night\products\whitening_drops.html" class="featured-cta" data-en="Learn More" data-ar="اعرف المزيد">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+          <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h4 class="logo" style="margin-bottom: 20px;">X-NIGHT</h4>
+                    <p style="color: var(--silver-accent); font-size: 14px; line-height: 1.8;" data-en="Premium intimate care products for discerning partners worldwide." data-ar="منتجات رعاية حميمة فاخرة للشركاء المميزين في جميع أنحاء العالم.">
+                        Premium intimate care products for discerning partners worldwide.
+                    </p>
+                </div>
+                
+                <div class="footer-column">
+                    <h4 data-en="Quick Links" data-ar="روابط سريعة">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="D:\x-night\x-night-final-updated.html" data-en="Home" data-ar="الرئيسية">Home</a></li>
+                        <li><a href="D:\x-night\about brand\about_brand.html" data-en="About The Brand" data-ar="من نحن">About The Brand</a></li>
+                        <li><a href="D:\x-night\products\all_products.html" data-en="Products" data-ar="المنتجات">Products</a></li>
+                        <li><a href="D:\x-night\contact us\contact_us.html" data-en="Contact" data-ar="تواصل">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4 data-en="Products" data-ar="المنتجات">Products</h4>
+                    <ul class="footer-links">
+                        <li><a href="D:\x-night\products\massage.oil.html" data-en="Massage Oil" data-ar="زيت التدليك">Massage Oil</a></li>
+                        <li><a href="D:\x-night\products\lubricant_gel.html" data-en="Lubricant & Gel" data-ar="مزلق وجل">Lubricant & Gel</a></li>
+                        <li><a href="D:\x-night\products\whitening_drops.html " data-en="Whitening Drops" data-ar="قطرات التبييض">Whitening Drops</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4 data-en="Contact" data-ar="تواصل">Contact</h4>
+                    <ul class="footer-links" style="list-style: none;">
+                        <li style="margin-bottom: 12px;">
+                        <li style="margin-bottom: 12px;">
+    <span style="font-size: 14px;">
+        <a href="mailto:Info@ulm.com.sa" style="color: var(--silver-accent); text-decoration: none;">Info@ulm.com.sa</a>
+    </span>
+        </li>
+
+            <li style="margin-bottom: 12px;">
+         <span style="font-size: 14px;">
+        <a href="tel:+966590310308" style="color: var(--silver-accent); text-decoration: none;">+966590310308</a>
+    </span>
+</li>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p data-en="© 2026 X-Night. All rights reserved." data-ar="© 2026 X-Night. جميع الحقوق محفوظة.">
+                    © 2026 X-Night. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+      <script>
+  // Language Switching
+        
+      /* ============================================================
+   ★ SHARED SCRIPTS ★
+============================================================ */
+
+// 1. Language Logic
+
+function switchLanguage(lang) {
+    currentLang = lang;
+    localStorage.setItem('selectedLang', lang); // حفظ اللغة
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    
+    // تحديث أزرار اللغة
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        // نتحقق من النص داخل الزر أو كلاس معين لضبط الحالة النشطة
+        if (btn.textContent.toLowerCase() === lang) {
+            btn.classList.add('active');
+        } else {
+            btn.classList.remove('active');
+        }
+    });
+    
+    // ترجمة النصوص
+    document.querySelectorAll('[data-en]').forEach(el => {
+        const text = el.getAttribute(`data-${lang}`);
+        if (text) {
+            el.textContent = text;
+        }
+    });
+}
+
+// 2. Mobile Menu Logic (الربط الاحترافي)
+document.addEventListener('DOMContentLoaded', () => {
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    const navMenu = document.querySelector('.nav-menu');
+
+    if (menuBtn && navMenu) {
+        menuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            menuBtn.classList.toggle('open');
+
+            // تحريك الهمبرجر إلى X
+            const spans = menuBtn.querySelectorAll('span');
+            if (menuBtn.classList.contains('open')) {
+                spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                spans[1].style.opacity = '0';
+                spans[2].style.transform = 'rotate(-45deg) translate(6px, -6px)';
+                document.body.style.overflow = 'hidden'; // قفل السكرول عند فتح المنيو
+            } else {
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+                document.body.style.overflow = ''; // فتح السكرول
+            }
+        });
+    }
+// Mobile Dropdown Toggle - نسخة معدلة بدقة
+document.querySelectorAll('.has-dropdown > .nav-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+        if (window.innerWidth <= 991) {
+            // نمنع الانتقال فقط للرابط الأب لكي يفتح القائمة المنسدلة
+            e.preventDefault(); 
+            
+            const parent = this.parentElement;
+            
+            // إغلاق أي قوائم أخرى مفتوحة لضمان شكل نظيف
+            document.querySelectorAll('.has-dropdown').forEach(item => {
+                if (item !== parent) {
+                    item.classList.remove('open');
+                }
+            });
+            
+            // فتح أو غلق القائمة الحالية
+            parent.classList.toggle('open');
+            
+            console.log("Parent toggled, submenu should be visible");
+        }
+    });
+});
+// الروابط الداخلية (التي داخل القائمة المنسدلة)
+    const subLinks = document.querySelectorAll('.dropdown-menu a');
+    subLinks.forEach(sub => {
+        sub.addEventListener('click', function(e) {
+            // لا نستخدم preventDefault هنا أبداً لكي يذهب للصفحة
+            // إغلاق القائمة بعد الضغط (اختياري)
+            document.querySelector('.nav-menu').classList.remove('active');
+            document.querySelector('.mobile-menu-btn').classList.remove('open');
+            document.body.style.overflow = '';
+        });
+    });
+
+    // تنفيذ اللغة المحفوظة عند التحميل
+    switchLanguage(currentLang);
+});
+
+// 4. Navbar Scroll Effect
+window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('.navbar');
+    if (navbar) {
+        navbar.classList.toggle('scrolled', window.scrollY > 50);
+    }
+});
+
+// 5. Close menu when clicking outside
+document.addEventListener('click', (e) => {
+    const navMenu = document.querySelector('.nav-menu');
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    
+    if (navMenu && navMenu.classList.contains('active')) {
+        // إذا ضغطت خارج المنيو وخارج زر المنيو
+        if (!navMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+            navMenu.classList.remove('active');
+            menuBtn.classList.remove('open');
+            // إرجاع شكل الزر
+            const spans = menuBtn.querySelectorAll('span');
+            spans[0].style.transform = 'none';
+            spans[1].style.opacity = '1';
+            spans[2].style.transform = 'none';
+            document.body.style.overflow = '';
+        }
+    }
+});
+
+        
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -100px 0px' });
+        
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

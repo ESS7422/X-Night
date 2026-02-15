@@ -1,0 +1,2045 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Products | X-Night Premium Intimate Care</title>
+    <meta name="description" content="Explore X-Night's complete range of premium intimate care products">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Cormorant+Garamond:wght@300;400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Noto+Sans+Arabic:wght@300;400;500;600;700&family=Noto+Serif+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --midnight-black: #0B0F14;
+            --deep-navy: #07142A;
+            --gold-accent: #d4af5e;
+            --silver-accent: #BFC7CD;
+            --paper-white: #E6E9EE;
+            --pure-white: #FFFFFF;
+            --charcoal: #1A1D23;
+            --dark-grey: #2D3139;
+            
+            --font-display: 'Playfair Display', serif;
+            --font-display-alt: 'Cormorant Garamond', serif;
+            --font-body: 'IBM Plex Sans', sans-serif;
+            --font-arabic-display: 'Noto Serif Arabic', serif;
+            --font-arabic-body: 'Noto Sans Arabic', sans-serif;
+            
+            --section-padding: 100px;
+            --container-padding: 80px;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            background: var(--midnight-black);
+            color: var(--paper-white);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        
+        body[dir="rtl"] {
+            font-family: var(--font-arabic-body);
+        }
+        
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 var(--container-padding);
+        }
+        
+        @media (max-width: 1200px) {
+            :root {
+                --container-padding: 40px;
+                --section-padding: 80px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            :root {
+                --container-padding: 24px;
+                --section-padding: 60px;
+            }
+        }
+        
+        /* ============================================
+           NAVBAR
+        ============================================ */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(11, 15, 20, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(212, 175, 94, 0.15);
+            z-index: 1000;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .navbar.scrolled {
+            background: rgba(7, 20, 42, 0.95);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            border-bottom-color: rgba(212, 175, 94, 0.3);
+            padding: 8px 0;
+        }
+        
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0;
+            transition: padding 0.4s ease;
+        }
+        
+        .navbar.scrolled .nav-content {
+            padding: 16px 0;
+        }
+        
+        .logo img {
+            transition: all 0.3s ease;
+        }
+        
+        .logo:hover img {
+            transform: scale(1.05);
+            filter: drop-shadow(0 4px 20px rgba(212, 175, 94, 0.6));
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 12px;
+            list-style: none;
+            align-items: center;
+        }
+        
+        .nav-item {
+            position: relative;
+        }
+        
+        .nav-link {
+            display: inline-block;
+            padding: 12px 24px;
+            color: var(--paper-white);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 94, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .nav-link:hover::before {
+            left: 100%;
+        }
+        
+        .nav-link:hover,
+        .nav-link.active {
+            background: rgba(212, 175, 94, 0.15);
+            color: var(--gold-accent);
+            transform: translateY(-2px);
+        }
+        
+        .nav-link.active {
+            box-shadow: 0 4px 12px rgba(212, 175, 94, 0.3);
+        }
+        
+        .has-dropdown .nav-link::after {
+            content: '▾';
+            margin-left: 6px;
+            font-size: 11px;
+            transition: transform 0.3s ease;
+        }
+        
+        .has-dropdown:hover .nav-link::after {
+            transform: rotate(180deg);
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: calc(100% + 12px);
+            left: 0;
+            background: linear-gradient(135deg, rgba(26, 29, 35, 0.98) 0%, rgba(45, 49, 57, 0.98) 100%);
+            border: 1px solid rgba(212, 175, 94, 0.25);
+            border-radius: 12px;
+            min-width: 240px;
+            padding: 12px 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+        }
+        
+        .nav-item:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown-link {
+            display: block;
+            padding: 14px 24px;
+            color: var(--silver-accent);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+        
+        body[dir="rtl"] .dropdown-link {
+            border-left: none;
+            border-right: 3px solid transparent;
+        }
+        
+        .dropdown-link:hover {
+            background: rgba(212, 175, 94, 0.1);
+            color: var(--gold-accent);
+            border-left-color: var(--gold-accent);
+            padding-left: 28px;
+        }
+        
+        body[dir="rtl"] .dropdown-link:hover {
+            border-right-color: var(--gold-accent);
+            padding-right: 28px;
+            padding-left: 24px;
+        }
+        
+        .lang-switch {
+            display: flex;
+            gap: 8px;
+            background: rgba(26, 29, 35, 0.6);
+            padding: 6px;
+            border-radius: 8px;
+        }
+        
+        .lang-btn {
+            padding: 8px 16px;
+            background: transparent;
+            border: none;
+            color: var(--silver-accent);
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+        
+        .lang-btn.active {
+            background: var(--gold-accent);
+            color: var(--midnight-black);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+        
+        .mobile-menu-btn span {
+            width: 28px;
+            height: 3px;
+            background: var(--gold-accent);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+        
+        @media (max-width: 968px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: flex;
+            }
+        }
+        /* ============================================
+           ENHANCED NAVBAR
+        ============================================ */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(11, 15, 20, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(212, 175, 94, 0.15);
+            z-index: 1000;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .navbar.scrolled {
+            background: rgba(7, 20, 42, 0.95);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            border-bottom-color: rgba(212, 175, 94, 0.3);
+            padding: 8px 0;
+        }
+        
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0;
+            transition: padding 0.4s ease;
+        }
+        
+        .navbar.scrolled .nav-content {
+            padding: 16px 0;
+        }
+        
+        .logo {
+            font-family: var(--font-display);
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--gold-accent);
+            text-decoration: none;
+            letter-spacing: 3px;
+            transition: all 0.3s ease;
+            text-shadow: 0 2px 10px rgba(212, 175, 94, 0.3);
+            position: relative;
+        }
+        
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold-accent);
+            transition: width 0.3s ease;
+        }
+        
+        .logo:hover::after {
+            width: 100%;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
+            text-shadow: 0 4px 20px rgba(212, 175, 94, 0.6);
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 12px;
+            list-style: none;
+            align-items: center;
+        }
+        
+        .nav-item {
+            position: relative;
+        }
+        
+        /* Primary Navigation Links */
+        .nav-link {
+            display: inline-block;
+            padding: 12px 24px;
+            color: var(--paper-white);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 94, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .nav-link:hover::before {
+            left: 100%;
+        }
+        
+        .nav-link:hover,
+        .nav-link.active {
+            background: rgba(212, 175, 94, 0.15);
+            color: var(--gold-accent);
+            transform: translateY(-2px);
+        }
+        
+        .nav-link.active {
+            box-shadow: 0 4px 12px rgba(212, 175, 94, 0.3);
+        }
+        
+        /* Dropdown Indicator */
+        .has-dropdown .nav-link::after {
+            content: '▾';
+            margin-left: 6px;
+            font-size: 11px;
+            transition: transform 0.3s ease;
+        }
+        
+        .has-dropdown:hover .nav-link::after {
+            transform: rotate(180deg);
+        }
+        
+        /* Dropdown Menu */
+        .dropdown-menu {
+            position: absolute;
+            top: calc(100% + 12px);
+            left: 0;
+            background: linear-gradient(135deg, rgba(26, 29, 35, 0.98) 0%, rgba(45, 49, 57, 0.98) 100%);
+            border: 1px solid rgba(212, 175, 94, 0.25);
+            border-radius: 12px;
+            min-width: 240px;
+            padding: 12px 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+        }
+        
+        .nav-item:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown-link {
+            display: block;
+            padding: 14px 24px;
+            color: var(--silver-accent);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+        
+        body[dir="rtl"] .dropdown-link {
+            border-left: none;
+            border-right: 3px solid transparent;
+        }
+        
+        .dropdown-link:hover {
+            background: rgba(212, 175, 94, 0.12);
+            color: var(--gold-accent);
+            border-left-color: var(--gold-accent);
+            padding-left: 32px;
+        }
+        
+        body[dir="rtl"] .dropdown-link:hover {
+            border-right-color: var(--gold-accent);
+            padding-left: 24px;
+            padding-right: 32px;
+        }
+        
+        /* Language Switcher */
+        .lang-switch {
+            display: flex;
+            gap: 4px;
+            padding: 6px;
+            background: rgba(26, 29, 35, 0.6);
+            border-radius: 8px;
+            border: 1px solid rgba(212, 175, 94, 0.2);
+        }
+        
+        .lang-btn {
+            background: none;
+            border: none;
+            color: var(--silver-accent);
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+        
+        .lang-btn.active {
+            background: var(--gold-accent);
+            color: var(--midnight-black);
+            box-shadow: 0 4px 12px rgba(212, 175, 94, 0.4);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: 2px solid var(--gold-accent);
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 8px;
+        }
+        
+        .mobile-menu-btn span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--gold-accent);
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+        
+        @media (max-width: 991px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 991px) {
+    /* تحويل القائمة لتكون غطاء كامل للشاشة */
+    .nav-menu {
+        display: flex; /* نغيرها من none لـ flex عند الفتح */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(7, 20, 42, 0.98); /* لون Midnight Blue غامق */
+        backdrop-filter: blur(15px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        z-index: -1;
+        transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+        
+        /* الحالة الافتراضية (مخفية) */
+        clip-path: circle(0% at 100% 0%); /* تأثير دائرة تفتح من مكان زر المنيو */
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    /* الحالة عند فتح المنيو (ستحتاج كلاس active بالجافا سكريبت) */
+    .nav-menu.active {
+        clip-path: circle(150% at 100% 0%);
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .nav-link {
+        font-size: 24px; /* تكبير الخط لسهولة الضغط في الموبايل */
+        width: 100%;
+        text-align: center;
+    }
+
+    /* تعديل الـ Dropdown في الموبايل */
+    .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        text-align: center;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    .has-dropdown.active .dropdown-menu {
+        max-height: 500px;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+        z-index: 1001;
+    }
+}
+        
+        /* ============================================
+           HERO SECTION
+        ============================================ */
+        .hero-section {
+            padding: 180px 0 var(--section-padding);
+            background: linear-gradient(135deg, var(--deep-navy) 0%, var(--midnight-black) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(212, 175, 94, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: 68px;
+            font-weight: 800;
+            color: var(--gold-accent);
+            margin-bottom: 24px;
+            letter-spacing: 3px;
+            text-shadow: 0 4px 20px rgba(212, 175, 94, 0.4);
+        }
+        
+        body[dir="rtl"] .hero-title {
+            font-family: var(--font-arabic-display);
+        }
+        
+        .hero-subtitle {
+            font-size: 22px;
+            color: var(--silver-accent);
+            margin-bottom: 32px;
+            line-height: 1.8;
+        }
+        
+        .hero-description {
+            font-size: 17px;
+            color: var(--paper-white);
+            line-height: 1.9;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 42px;
+            }
+            
+            .hero-subtitle {
+                font-size: 18px;
+            }
+            
+            .hero-description {
+                font-size: 15px;
+            }
+        }
+        
+        /* ============================================
+           INTRO FEATURES
+        ============================================ */
+        .intro-features {
+            padding: var(--section-padding) 0;
+            background: linear-gradient(135deg, rgba(26, 29, 35, 0.4) 0%, rgba(7, 20, 42, 0.3) 100%);
+            border-top: 1px solid rgba(212, 175, 94, 0.15);
+            border-bottom: 1px solid rgba(212, 175, 94, 0.15);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+        
+        .feature-box {
+            background: rgba(26, 29, 35, 0.6);
+            border: 1px solid rgba(212, 175, 94, 0.2);
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+        
+        .feature-box:hover {
+            background: rgba(26, 29, 35, 0.9);
+            border-color: rgba(212, 175, 94, 0.4);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(212, 175, 94, 0.15);
+        }
+        
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .feature-title {
+            font-family: var(--font-display);
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--gold-accent);
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+        
+        body[dir="rtl"] .feature-title {
+            font-family: var(--font-arabic-display);
+        }
+        
+        .feature-text {
+            font-size: 15px;
+            color: var(--silver-accent);
+            line-height: 1.7;
+        }
+        
+        /* ============================================
+           CATEGORY SECTION
+        ============================================ */
+        .category-section {
+            padding: var(--section-padding) 0;
+        }
+        
+        .category-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+        
+        .category-label {
+            display: inline-block;
+            background: rgba(212, 175, 94, 0.15);
+            border: 1px solid rgba(212, 175, 94, 0.3);
+            color: var(--gold-accent);
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        
+        .category-title {
+            font-family: var(--font-display);
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--gold-accent);
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+        
+        body[dir="rtl"] .category-title {
+            font-family: var(--font-arabic-display);
+        }
+        
+        .category-subtitle {
+            font-size: 18px;
+            color: var(--silver-accent);
+            line-height: 1.8;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* ============================================
+           PRODUCTS GRID
+        ============================================ */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 40px;
+        }
+        
+        @media (max-width: 768px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Product Card */
+        .product-card {
+            background: linear-gradient(135deg, rgba(26, 29, 35, 0.6) 0%, rgba(7, 20, 42, 0.4) 100%);
+            border: 1px solid rgba(212, 175, 94, 0.2);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(212, 175, 94, 0.2);
+            border-color: rgba(212, 175, 94, 0.5);
+        }
+        
+        .product-image-wrapper {
+            position: relative;
+            height: 280px;
+            background: linear-gradient(135deg, rgba(45, 49, 57, 0.8) 0%, rgba(26, 29, 35, 0.9) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid rgba(212, 175, 94, 0.2);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--gold-accent);
+            color: var(--midnight-black);
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            z-index: 2;
+        }
+        
+        body[dir="rtl"] .product-badge {
+            right: auto;
+            left: 20px;
+        }
+        
+        .product-image {
+            font-size: 120px;
+            filter: drop-shadow(0 8px 20px rgba(212, 175, 94, 0.3));
+        }
+        
+        .product-info {
+            padding: 35px;
+        }
+        
+        .product-name {
+            font-family: var(--font-display);
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--gold-accent);
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+        
+        body[dir="rtl"] .product-name {
+            font-family: var(--font-arabic-display);
+        }
+        
+        .product-desc {
+            font-size: 15px;
+            color: var(--silver-accent);
+            line-height: 1.8;
+            margin-bottom: 28px;
+        }
+        
+        .product-features {
+            list-style: none;
+            margin-bottom: 28px;
+        }
+        
+        .product-features li {
+            padding: 10px 0;
+            padding-left: 28px;
+            color: var(--silver-accent);
+            font-size: 14px;
+            position: relative;
+        }
+        
+        body[dir="rtl"] .product-features li {
+            padding-left: 0;
+            padding-right: 28px;
+        }
+        
+        .product-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--gold-accent);
+            font-weight: 700;
+            font-size: 16px;
+        }
+        
+        body[dir="rtl"] .product-features li::before {
+            left: auto;
+            right: 0;
+        }
+        
+        .product-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 32px;
+            background: transparent;
+            border: 2px solid var(--gold-accent);
+            border-radius: 10px;
+            color: var(--gold-accent);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+        
+        .product-cta::after {
+            content: '→';
+            font-size: 18px;
+            transition: transform 0.3s ease;
+        }
+        
+        body[dir="rtl"] .product-cta::after {
+            content: '←';
+        }
+        
+        .product-cta:hover {
+            background: var(--gold-accent);
+            color: var(--midnight-black);
+            transform: translateX(4px);
+            box-shadow: 0 8px 25px rgba(212, 175, 94, 0.4);
+        }
+        
+        .product-cta:hover::after {
+            transform: translateX(4px);
+        }
+        
+        body[dir="rtl"] .product-cta:hover {
+            transform: translateX(-4px);
+        }
+        
+        body[dir="rtl"] .product-cta:hover::after {
+            transform: translateX(-4px);
+        }
+        
+        /* ============================================
+           FOOTER
+        ============================================ */
+        .footer {
+            background: var(--charcoal);
+            border-top: 1px solid rgba(212, 175, 94, 0.1);
+            padding: 50px 0;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+        }
+        
+        .footer-bottom p {
+            color: var(--silver-accent);
+            font-size: 14px;
+        }
+        
+        /* ============================================
+           ANIMATIONS
+        ============================================ */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* الحاوية الخارجية للكارت */
+.product-card {
+    width: 100%; /* العرض ثابت لكن الارتفاع مرن */
+    max-width: 400px; /* أو أي مقاس يناسب الجريد عندك */
+    background: #0b0f14;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: fit-content; /* يخلي الكارت يلم على قد اللي جواه */
+    border: 1px solid rgba(212, 175, 94, 0.2);
+}
+
+/* حاوية السلايدر */
+.product-images {
+    position: relative;
+    width: 100%;
+    height: auto; /* شيل أي px هنا */
+    overflow: hidden;
+}
+
+.image-slider {
+    display: flex;
+    align-items: flex-start; /* عشان الصور الطويلة متمطش بالعافية */
+    height: auto;
+}
+
+/* الصورة نفسها هي اللي هتحدد الارتفاع */
+.product-image {
+    width: 100%;
+    height: auto; /* ده أهم سطر */
+    display: block;
+    object-fit: contain; /* عشان مفيش حاجة تتقص */
+}
+
+/* محتوى الكارت (الاسم والزرار) */
+.product-content {
+    padding: 20px;
+    background: #0b0f14;
+    flex-grow: 1; /* ياخد باقي المساحة */
+}
+        /* ============================================
+           PRODUCT CARD - COMPACT VERSION
+        ============================================ */
+        .product-card {
+            background: linear-gradient(135deg, rgba(26, 29, 35, 0.8) 0%, rgba(7, 20, 42, 0.6) 100%);
+            border: 1px solid rgba(212, 175, 94, 0.2);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(212, 175, 94, 0.2);
+            border-color: rgba(212, 175, 94, 0.5);
+        }
+        
+        /* Image Slider */
+        .product-images {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+            background: var(--charcoal);
+        }
+        
+        .image-slider {
+            display: flex;
+            transition: transform 0.5s ease;
+            height: 100%;
+        }
+        
+        .product-image {
+            min-width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .slider-controls {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 6px;
+            z-index: 2;
+        }
+        
+        .slider-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .slider-dot.active {
+            background: var(--gold-accent);
+            width: 24px;
+            border-radius: 4px;
+        }
+        
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(212, 175, 94, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 94, 0.5);
+            color: var(--pure-white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            opacity: 0;
+            z-index: 2;
+        }
+        
+        .product-card:hover .slider-arrow {
+            opacity: 1;
+        }
+        
+        .slider-arrow:hover {
+            background: rgba(212, 175, 94, 0.6);
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .slider-arrow.prev {
+            left: 12px;
+        }
+        
+        .slider-arrow.next {
+            right: 12px;
+        }
+        
+        body[dir="rtl"] .slider-arrow.prev {
+            left: auto;
+            right: 12px;
+        }
+        
+        body[dir="rtl"] .slider-arrow.next {
+            right: auto;
+            left: 12px;
+        }
+        
+        /* Product Badge */
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--gold-accent);
+            color: var(--midnight-black);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            z-index: 3;
+        }
+        
+        body[dir="rtl"] .product-badge {
+            right: auto;
+            left: 15px;
+        }
+        
+        /* Product Content - Simplified */
+        .product-content {
+            padding: 25px;
+        }
+        
+        .product-name {
+            font-family: var(--font-display);
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--gold-accent);
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+            line-height: 1.3;
+        }
+        
+        body[dir="rtl"] .product-name {
+            font-family: var(--font-arabic-display);
+        }
+        
+        .product-quantity {
+            font-size: 14px;
+            color: var(--silver-accent);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 20px;
+            display: block;
+        }
+        .products-grid {
+    display: grid;
+    /* التعديل هنا: خليناه 4 أعمدة متساوية */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 20px; /* المسافة بين الكروت، قللها شوية لـ 15px لو الكروت زحمة */
+    padding: 40px 0;
+}
+@media (max-width: 480px) {
+    /* 1. نخلي الجريد يعرض كرت واحد بشكل فخم */
+    .products-grid {
+        grid-template-columns: 1fr; 
+        gap: 25px;
+        padding: 20px 15px; /* مسافة بسيطة من الجوانب */
+    }
+
+    /* 2. تظبيط الكرت نفسه */
+    .product-card {
+        max-width: 100%;
+        border-radius: 15px; /* حواف أنعم للموبايل */
+    }
+
+    /* 3. تظبيط ارتفاع الصورة عشان ميخدش الشاشة كلها */
+    .product-images {
+        max-height: 350px; /* ليميت للصور الطويلة جداً */
+        display: flex;
+        align-items: center;
+        background: #070a0e;
+    }
+
+    .product-image {
+        padding: 10px; /* مساحة خالية عشان المنتج يبان فخم */
+        object-fit: contain;
+    }
+
+    /* 4. تظبيط النصوص (Typography) */
+    .product-name {
+        font-size: 18px; /* تصغير العنوان شوية */
+        margin-bottom: 8px;
+    }
+
+    .product-quantity {
+        font-size: 13px;
+    }
+
+    /* 5. تظبيط زرار أماكن البيع */
+    .stores-btn {
+        padding: 14px; /* تكبير الزرار عشان يبقى سهل الضغط بالإبهام */
+        font-size: 15px;
+    }
+
+    /* 6. تظبيط الأسهم (Arrows) في الموبايل */
+    .slider-arrow {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+        background: rgba(0, 0, 0, 0.5); /* زيادة الوضوح */
+    }
+}
+        
+        /* Store Locations Button */
+        .stores-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, var(--gold-accent) 0%, #c9a155 100%);
+            color: var(--midnight-black);
+            border: none;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stores-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+        
+        .stores-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .stores-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(212, 175, 94, 0.4);
+        }
+        
+        .stores-btn span {
+            position: relative;
+            z-index: 1;
+        }
+        
+        @media (max-width: 768px) {
+            .product-images {
+                height: 250px;
+            }
+            
+            .product-content {
+                padding: 20px;
+            }
+            
+            .product-name {
+                font-size: 20px;
+            }
+        }
+        
+        /* ============================================
+           POPUP MODAL
+        ============================================ */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            padding: 20px;
+        }
+        
+        .modal-overlay.active {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .modal {
+            background: linear-gradient(135deg, var(--charcoal) 0%, var(--deep-navy) 100%);
+            border: 2px solid rgba(212, 175, 94, 0.3);
+            border-radius: 20px;
+            max-width: 600px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .modal-header {
+            padding: 35px 35px 25px;
+            border-bottom: 1px solid rgba(212, 175, 94, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-title {
+            font-family: var(--font-display);
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--gold-accent);
+            letter-spacing: 1px;
+        }
+        
+        body[dir="rtl"] .modal-title {
+            font-family: var(--font-arabic-display);
+        }
+        
+        .modal-close {
+            background: rgba(212, 175, 94, 0.2);
+            border: 1px solid rgba(212, 175, 94, 0.3);
+            color: var(--gold-accent);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-close:hover {
+            background: rgba(212, 175, 94, 0.4);
+            transform: rotate(90deg);
+        }
+        
+        .modal-body {
+            padding: 35px;
+        }
+        
+        .store-item {
+            background: rgba(26, 29, 35, 0.5);
+            border: 1px solid rgba(212, 175, 94, 0.15);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .store-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .store-item:hover {
+            background: rgba(26, 29, 35, 0.8);
+            border-color: rgba(212, 175, 94, 0.4);
+            transform: translateX(5px);
+        }
+        
+        body[dir="rtl"] .store-item:hover {
+            transform: translateX(-5px);
+        }
+        
+        .store-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--gold-accent);
+            margin-bottom: 12px;
+        }
+        
+        .store-info {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .store-info-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 14px;
+            color: var(--silver-accent);
+        }
+        
+        .store-info-item svg {
+            width: 18px;
+            height: 18px;
+            color: var(--gold-accent);
+            flex-shrink: 0;
+        }
+        
+        .store-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: rgba(212, 175, 94, 0.2);
+            color: var(--gold-accent);
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .store-link:hover {
+            background: rgba(212, 175, 94, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        /* ============================================
+           RESPONSIVE
+        ============================================ */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 40px;
+            }
+            
+            .page-header p {
+                font-size: 16px;
+            }
+            
+            .product-images {
+                height: 300px;
+            }
+            
+            .product-content {
+                padding: 25px;
+            }
+            
+            .product-name {
+                font-size: 24px;
+            }
+            
+            .modal {
+                margin: 20px;
+            }
+            
+            .modal-header,
+            .modal-body {
+                padding: 25px;
+            }
+            
+            .nav-menu {
+                display: none;
+            }
+        }
+        
+        /* ============================================
+           ANIMATIONS
+        ============================================ */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+
+/* الحاوية الخارجية للكارت */
+.product-card {
+    width: 100%; /* العرض ثابت لكن الارتفاع مرن */
+    max-width: 400px; /* أو أي مقاس يناسب الجريد عندك */
+    background: #0b0f14;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: fit-content; /* يخلي الكارت يلم على قد اللي جواه */
+    border: 1px solid rgba(212, 175, 94, 0.2);
+}
+
+/* حاوية السلايدر */
+.product-images {
+    position: relative;
+    width: 100%;
+    height: auto; /* شيل أي px هنا */
+    overflow: hidden;
+}
+
+.image-slider {
+    display: flex;
+    align-items: flex-start; /* عشان الصور الطويلة متمطش بالعافية */
+    height: auto;
+}
+
+/* الصورة نفسها هي اللي هتحدد الارتفاع */
+.product-image {
+    width: 100%;
+    height: auto; /* ده أهم سطر */
+    display: block;
+    object-fit: contain; /* عشان مفيش حاجة تتقص */
+}
+
+/* محتوى الكارت (الاسم والزرار) */
+.product-content {
+    padding: 20px;
+    background: #0b0f14;
+    flex-grow: 1; /* ياخد باقي المساحة */
+}
+    /* ============================================
+           FOOTER
+        ============================================ */
+        .footer {
+            background: var(--charcoal);
+            border-top: 1px solid rgba(212, 175, 94, 0.1);
+            padding: 80px 0 40px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+        
+        .footer-column h4 {
+            font-family: var(--font-display);
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--gold-accent);
+            margin-bottom: 24px;
+        }
+        
+        body[dir="rtl"] .footer-column h4 {
+            font-family: var(--font-arabic-display);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 1px;
+        }
+        
+        .footer-links a {
+            color: var(--silver-accent);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+        
+        .footer-links a:hover {
+            color: var(--gold-accent);
+            padding-left: 8px;
+        }
+        
+        body[dir="rtl"] .footer-links a:hover {
+            padding-left: 0;
+            padding-right: 0px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(212, 175, 94, 0.1);
+            color: var(--silver-accent);
+            font-size: 14px;
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="D:\x-night\x-night-final.html" class="logo" ><img src="D:\x-night\x night logo-02.png" width="110px" height="100px" alt=""></a>
+                
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="D:\x-night\x-night-final.html" class="nav-link active" data-en="Home" data-ar="الرئيسية">Home</a>
+                    </li>
+                    
+                    <li class="nav-item has-dropdown">
+                        <a href="D:\x-night\about brand\about_brand.html" class="nav-link" data-en="About the Brand" data-ar="عن العلامة التجارية">About the Brand</a>
+                        <div class="dropdown-menu">
+                            <a href="D:\x-night\about brand\brand_story.html" class="dropdown-link" data-en="Brand Story" data-ar="قصة العلامة التجارية">Brand Story</a>
+                            <a href="D:\x-night\about brand\brand_vision.html" class="dropdown-link" data-en="Brand Vision" data-ar="رؤيتنا">Brand Vision</a>
+                            <a href="D:\x-night\about brand\brand_mission.html" class="dropdown-link" data-en="Brand Mission" data-ar="رسالتنا">Brand Mission</a>
+                        </div>
+                    </li>
+                    
+                    <li class="nav-item has-dropdown">
+                        <a href="D:\x-night\products\all-products-page-updated.html" class="nav-link" data-en="Products" data-ar="المنتجات">Products</a>
+                        <div class="dropdown-menu">
+                            <a href="D:\x-night\products\massage_oil.html" class="dropdown-link" data-en="Massage Oil" data-ar="زيت المساج">Massage Oil</a>
+                            <a href="D:\x-night\products\lubricant_gel.html" class="dropdown-link" data-en="Lubricant & Massage Gel" data-ar="جل مساج و مزلقات">Lubricant & Massage Gel</a>
+                            <a href="D:\x-night\products\whitening_drops.html" class="dropdown-link" data-en="Whitening Drops" data-ar="قطرات التفتيح">Whitening Drops</a>
+                        </div>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a href="D:\x-night\contact us\contact_us.html" class="nav-link" data-en="Contact Us" data-ar="تواصل معنا">Contact Us</a>
+                    </li>
+                     <li class="nav-item">
+                        <a href="D:\x-night\shop_online.html" class="nav-link" data-en="shop Online" data-ar="تسوق منتجاتنا اونلاين">Shop Online</a>
+                    </li>
+
+                    <li>
+                        <div class="lang-switch">
+                            <button class="lang-btn active" onclick="switchLanguage('en')">EN</button>
+                            <button class="lang-btn" onclick="switchLanguage('ar')">AR</button>
+                        </div>
+                    </li>
+                </ul>
+                
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h1 class="hero-title" data-en="Our Premium Collection" data-ar="مجموعتنا الفاخرة">Our Premium Collection</h1>
+                <p class="hero-subtitle" data-en="Discover Excellence in Intimate Care" data-ar="اكتشف التميز في العناية الحميمة">X-night offers a diverse range of product solutions for personal and intimate care, characterized by the following</p>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Intro Features -->
+    <section class="intro-features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-box fade-in">
+                    <div class="feature-icon">✨</div>
+                    <h3 class="feature-title" data-en="Safe & Gentle" data-ar="آمنة ولطيفة">Safe & Gentle</h3>
+                    <p class="feature-text" data-en="Carefully selected ingredients, free from harsh substances like parabens" data-ar="مكونات مختارة بعناية فائقة، خالية من المواد القاسية مثل البارابين">Carefully selected ingredients, free from harsh substances like parabens</p>
+                </div>
+                
+                <div class="feature-box fade-in">
+                    <div class="feature-icon">⚖️</div>
+                    <h3 class="feature-title" data-en="pH Balanced" data-ar="متوازنة الحموضة">pH Balanced</h3>
+                    <p class="feature-text" data-en="All intimate care products designed to be fully compatible with the natural balance of skin and sensitive areas" data-ar="جميع منتجات العناية الحميمية مصممة لتكون متوافقة تمامًا مع التوازن الطبيعي للبشرة والمناطق الحساسة">All intimate care products designed to be fully compatible with the natural balance of skin and sensitive areas</p>
+                </div>
+                
+                <div class="feature-box fade-in">
+                    <div class="feature-icon">🔬</div>
+                    <h3 class="feature-title" data-en="Proven Effectiveness" data-ar="فعالية مثبتة">Proven Effectiveness</h3>
+                    <p class="feature-text" data-en="We rely on active ingredients with proven efficacy in moisturizing and nourishment, such as natural oils and botanical extracts." data-ar="مكونات نشطة أثبتت فعاليتها في الترطيب والتغذية، مثل الزيوت الطبيعية والمستخلصات النباتية">We rely on active ingredients with proven efficacy in moisturizing and nourishment, such as natural oils and botanical extracts.
+</p>
+                </div>
+                
+                <div class="feature-box fade-in">
+                    <div class="feature-icon">🏆</div>
+                    <h3 class="feature-title" data-en="High Quality Standards" data-ar="معايير جودة عالية">High Quality Standards</h3>
+                    <p class="feature-text" data-en="All our products are manufactured in facilities certified for quality assurance and Good Manufacturing Practices (GMP), ensuring the highest levels of hygiene and quality control" data-ar="يتم تصنيع جميع منتجاتنا في منشآت حاصلة على شهادات ISO مما يضمن أعلى مستويات النظافة والتحكم في الجودة">All our products are manufactured in facilities certified for quality assurance and Good Manufacturing Practices (GMP), ensuring the highest levels of hygiene and quality control</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category 1: Premium Massage Oils -->
+    <section class="category-section">
+        <div class="container">
+            <div class="category-header fade-in">
+                <span class="category-label" data-en="Category 01" data-ar="الفئة 01">Category 01</span>
+                <h2 class="category-title" data-en="Premium Massage Oils (4×1)" data-ar="زيوت المساج الفاخرة (4×1)">Premium Massage Oils (4×1)</h2>
+                <p class="category-subtitle" data-en="For those seeking a pure massage oil that focuses on relaxation & skin nourishment and provides an exceptional sensory experience." data-ar="للأشخاص الباحثين عن زيت مساج نقي يركز على الاسترخاء وتغذية البشرة وتجربة حسية رائعة. متوفر بـ 10 نكهات عطرية ساحرة.">
+For those seeking a pure massage oil that focuses on relaxation & skin nourishment and provides an exceptional sensory experience.
+                </p>
+            </div>
+            
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <div class="product-card fade-in">
+                    <div class="product-images">
+                        <div class="product-badge" data-en="Premium" data-ar="فاخر">Premium</div>
+                        
+                        <div class="image-slider">
+                            <img src="D:\x-night\imges\WhatsApp Image 2026-02-03 at 1.25.49 PM (1).jpeg" alt="Product" class="product-image">
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="product-content">
+                        <h3 class="product-name" data-en="Sensual Rose Massage Oil" data-ar="زيت تدليك الورد الحسي">Sensual Rose Massage Oil</h3>
+                        <span class="product-quantity" data-en="200ml" data-ar="٢٠٠ مل">200ml</span>
+                        
+                        <button class="stores-btn" onclick="window.location.href='D:/x-night/products/massage_oil.html'">
+                            <span data-en="🛒 Explore more" data-ar="تصفح المنتجات ">🛒 Explore more</span>
+                        </button>
+                    </div>
+                </div>
+                <!-- Product 2 -->
+                <div class="product-card fade-in">
+                    <div class="product-image-wrapper">
+                        <span class="product-badge" data-en="BEST SELLER" data-ar="الأكثر مبيعًا">BEST SELLER</span>
+                        <div class="product-image">🍃</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name" data-en="Lavender Relaxation Oil" data-ar="زيت اللافندر المريح">Lavender Relaxation Oil</h3>
+                        <p class="product-desc" data-en="Soothing lavender massage oil. Aromatherapy benefits for stress relief. Perfect for couple's relaxation sessions." data-ar="زيت مساج اللافندر المهدئ. فوائد العلاج العطري لتخفيف التوتر. مثالي لجلسات الاسترخاء للأزواج.">
+                            Soothing lavender massage oil. Aromatherapy benefits for stress relief. Perfect for couple's relaxation sessions.
+                        </p>
+                        <ul class="product-features">
+                            <li data-en="Pure lavender extract" data-ar="مستخلص اللافندر النقي">Pure lavender extract</li>
+                            <li data-en="Anti-stress properties" data-ar="خصائص مضادة للتوتر">Anti-stress properties</li>
+                            <li data-en="Smooth glide texture" data-ar="قوام انزلاق ناعم">Smooth glide texture</li>
+                        </ul>
+                        <a href="#" class="product-cta" data-en="View Details" data-ar="عرض التفاصيل">View Details</a>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card fade-in">
+                    <div class="product-image-wrapper">
+                        <span class="product-badge" data-en="NEW" data-ar="جديد">NEW</span>
+                        <div class="product-image">🍊</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name" data-en="Citrus Energy Oil" data-ar="زيت الطاقة بالحمضيات">Citrus Energy Oil</h3>
+                        <p class="product-desc" data-en="Invigorating citrus blend massage oil. Energizing aromatherapy with skin moisturization. Refreshing and uplifting experience." data-ar="زيت مساج منعش بمزيج الحمضيات. علاج عطري منشط مع ترطيب للبشرة. تجربة منعشة ومحفزة.">
+                            Invigorating citrus blend massage oil. Energizing aromatherapy with skin moisturization. Refreshing and uplifting experience.
+                        </p>
+                        <ul class="product-features">
+                            <li data-en="Citrus essential oils" data-ar="زيوت الحمضيات الأساسية">Citrus essential oils</li>
+                            <li data-en="Energy-boosting aroma" data-ar="رائحة معززة للطاقة">Energy-boosting aroma</li>
+                            <li data-en="Non-greasy finish" data-ar="لمسة نهائية غير دهنية">Non-greasy finish</li>
+                        </ul>
+                        <a href="#" class="product-cta" data-en="View Details" data-ar="عرض التفاصيل">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category 2: Lubricants & Massage Gels -->
+    <section class="category-section">
+        <div class="container">
+            <div class="category-header fade-in">
+                <span class="category-label" data-en="Category 02" data-ar="الفئة 02">Category 02</span>
+                <h2 class="category-title" data-en="Lubricants & Massage Gels (2×1)" data-ar="جل مساج ومزلقات (2×1)">Lubricants & Massage Gels (2×1)</h2>
+                <p class="category-subtitle" data-en="Water-based dual-purpose gels. Functions as both lubricant and massage gel for enhanced intimacy and comfort." data-ar="جل ثنائي الغرض بقاعدة مائية. يعمل كمزلق وجل مساج لتعزيز الحميمية والراحة.">
+                    Water-based dual-purpose gels. Functions as both lubricant and massage gel for enhanced intimacy and comfort.
+                </p>
+            </div>
+            
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <div class="product-card fade-in">
+                    <div class="product-image-wrapper">
+                        <span class="product-badge" data-en="POPULAR" data-ar="مشهور">POPULAR</span>
+                        <div class="product-image">💧</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name" data-en="Pure Aqua Gel" data-ar="جل أكوا النقي">Pure Aqua Gel</h3>
+                        <p class="product-desc" data-en="Ultra-smooth water-based gel. Perfect for sensitive skin. Dual-action for massage and intimacy." data-ar="جل بقاعدة مائية فائق النعومة. مثالي للبشرة الحساسة. عمل مزدوج للمساج والحميمية.">
+                            Ultra-smooth water-based gel. Perfect for sensitive skin. Dual-action for massage and intimacy.
+                        </p>
+                        <ul class="product-features">
+                            <li data-en="Water-based formula" data-ar="تركيبة بقاعدة مائية">Water-based formula</li>
+                            <li data-en="Hypoallergenic" data-ar="مضاد للحساسية">Hypoallergenic</li>
+                            <li data-en="Easy to clean" data-ar="سهل التنظيف">Easy to clean</li>
+                        </ul>
+                        <a href="#" class="product-cta" data-en="View Details" data-ar="عرض التفاصيل">View Details</a>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card fade-in">
+                    <div class="product-image-wrapper">
+                        <span class="product-badge" data-en="PREMIUM" data-ar="فاخر">PREMIUM</span>
+                        <div class="product-image">🌸</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name" data-en="Cherry Blossom Gel" data-ar="جل زهرة الكرز">Cherry Blossom Gel</h3>
+                        <p class="product-desc" data-en="Delicate cherry blossom scented gel. Dual-action formula for massage and intimacy. Silky smooth texture." data-ar="جل برائحة زهرة الكرز الرقيقة. تركيبة ثنائية للمساج والحميمية. قوام حريري ناعم.">
+                            Delicate cherry blossom scented gel. Dual-action formula for massage and intimacy. Silky smooth texture.
+                        </p>
+                        <ul class="product-features">
+                            <li data-en="Natural cherry extract" data-ar="مستخلص الكرز الطبيعي">Natural cherry extract</li>
+                            <li data-en="pH balanced" data-ar="متوازن الحموضة">pH balanced</li>
+                            <li data-en="Non-sticky" data-ar="غير لاصق">Non-sticky</li>
+                        </ul>
+                        <a href="#" class="product-cta" data-en="View Details" data-ar="عرض التفاصيل">View Details</a>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card fade-in">
+                    <div class="product-image-wrapper">
+                        <span class="product-badge" data-en="NEW" data-ar="جديد">NEW</span>
+                        <div class="product-image">🔥</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name" data-en="Warming Bliss Gel" data-ar="جل النعيم الدافئ">Warming Bliss Gel</h3>
+                        <p class="product-desc" data-en="Gentle warming sensation gel. Enhances intimacy with subtle heat. Safe botanical extracts." data-ar="جل بإحساس تدفئة لطيف. يعزز الحميمية بحرارة خفيفة. مستخلصات نباتية آمنة.">
+                            Gentle warming sensation gel. Enhances intimacy with subtle heat. Safe botanical extracts.
+                        </p>
+                        <ul class="product-features">
+                            <li data-en="Natural warming effect" data-ar="تأثير تدفئة طبيعي">Natural warming effect</li>
+                            <li data-en="Dermatologically tested" data-ar="مختبر جلديًا">Dermatologically tested</li>
+                            <li data-en="Multi-purpose use" data-ar="متعدد الاستخدامات">Multi-purpose use</li>
+                        </ul>
+                        <a href="#" class="product-cta" data-en="View Details" data-ar="عرض التفاصيل">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category 3: Specialized Care Products -->
+    <section class="category-section">
+        <div class="container">
+            <div class="category-header fade-in">
+                <span class="category-label" data-en="Category 03" data-ar="الفئة 03">Category 03</span>
+                <h2 class="category-title" data-en="Specialized Care Products" data-ar="منتجات العناية المتخصصة">Specialized Care Products</h2>
+                <p class="category-subtitle" data-en="Specialized and safe solutions for intimate skin care. Whitening drops for women's sensitive areas." data-ar="حلول متخصصة وآمنة للعناية بالبشرة الحميمية. قطرات تفتيح المناطق الحساسة للنساء.">
+                    Specialized and safe solutions for intimate skin care. Whitening drops for women's sensitive areas.
+                </p>
+            </div>
+            
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <div class="product-card fade-in">
+                    <div class="product-image-wrapper">
+                        <span class="product-badge" data-en="BEST SELLER" data-ar="الأكثر مبيعًا">BEST SELLER</span>
+                        <div class="product-image">✨</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name" data-en="Radiance Brightening Drops" data-ar="قطرات الإشراقة المضيئة">Radiance Brightening Drops</h3>
+                        <p class="product-desc" data-en="Advanced intimate area brightening solution with Vitamin C. Gentle, clinically-tested formula for even skin tone." data-ar="محلول متقدم لتفتيح المناطق الحميمة مع فيتامين C. تركيبة لطيفة مختبرة سريريًا للون بشرة موحد.">
+                            Advanced intimate area brightening solution with Vitamin C. Gentle, clinically-tested formula for even skin tone.
+                        </p>
+                        <ul class="product-features">
+                            <li data-en="Vitamin C enriched" data-ar="معزز بفيتامين C">Vitamin C enriched</li>
+                            <li data-en="Safe for sensitive areas" data-ar="آمن للمناطق الحساسة">Safe for sensitive areas</li>
+                            <li data-en="Visible results in weeks" data-ar="نتائج مرئية في أسابيع">Visible results in weeks</li>
+                        </ul>
+                        <a href="#" class="product-cta" data-en="View Details" data-ar="عرض التفاصيل">View Details</a>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card fade-in">
+                    <div class="product-image-wrapper">
+                        <span class="product-badge" data-en="POPULAR" data-ar="مشهور">POPULAR</span>
+                        <div class="product-image">🌟</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name" data-en="Pearl Glow Serum" data-ar="سيروم توهج اللؤلؤ">Pearl Glow Serum</h3>
+                        <p class="product-desc" data-en="Pearl extract brightening serum for luminous skin. Dermatologist approved for intimate care." data-ar="سيروم تفتيح مستخلص اللؤلؤ للبشرة المضيئة. معتمد من أطباء الجلد للعناية الحميمة.">
+                            Pearl extract brightening serum for luminous skin. Dermatologist approved for intimate care.
+                        </p>
+                        <ul class="product-features">
+                            <li data-en="Natural pearl extract" data-ar="مستخلص اللؤلؤ الطبيعي">Natural pearl extract</li>
+                            <li data-en="Hypoallergenic formula" data-ar="تركيبة مضادة للحساسية">Hypoallergenic formula</li>
+                            <li data-en="Daily use safe" data-ar="آمن للاستخدام اليومي">Daily use safe</li>
+                        </ul>
+                        <a href="#" class="product-cta" data-en="View Details" data-ar="عرض التفاصيل">View Details</a>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card fade-in">
+                    <div class="product-image-wrapper">
+                        <span class="product-badge" data-en="NEW" data-ar="جديد">NEW</span>
+                        <div class="product-image">🌸</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name" data-en="Sakura Brightening Essence" data-ar="خلاصة ساكورا المضيئة">Sakura Brightening Essence</h3>
+                        <p class="product-desc" data-en="Cherry blossom extract with niacinamide. Advanced brightening formula for sensitive intimate areas." data-ar="مستخلص زهرة الكرز مع نياسيناميد. تركيبة تفتيح متقدمة للمناطق الحميمة الحساسة.">
+                            Cherry blossom extract with niacinamide. Advanced brightening formula for sensitive intimate areas.
+                        </p>
+                        <ul class="product-features">
+                            <li data-en="Niacinamide + Cherry blossom" data-ar="نياسيناميد + زهرة الكرز">Niacinamide + Cherry blossom</li>
+                            <li data-en="Fast absorption" data-ar="امتصاص سريع">Fast absorption</li>
+                            <li data-en="Clinical grade quality" data-ar="جودة من الدرجة السريرية">Clinical grade quality</li>
+                        </ul>
+                        <a href="#" class="product-cta" data-en="View Details" data-ar="عرض التفاصيل">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+      <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h4 class="logo" style="margin-bottom: 20px;">X-NIGHT</h4>
+                    <p style="color: var(--silver-accent); font-size: 14px; line-height: 1.8;" data-en="Premium intimate care products for discerning partners worldwide." data-ar="منتجات رعاية حميمة فاخرة للشركاء المميزين في جميع أنحاء العالم.">
+                        Premium intimate care products for discerning partners worldwide.
+                    </p>
+                </div>
+                
+                <div class="footer-column">
+                    <h4 data-en="Quick Links" data-ar="روابط سريعة">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="D:\x-night\x-night-final.html" data-en="Home" data-ar="الرئيسية">Home</a></li>
+                        <li><a href="D:\x-night\about brand\about_brand.html" data-en="About" data-ar="من نحن">About</a></li>
+                        <li><a href="D:\x-night\products\all-products-page.html" data-en="Products" data-ar="المنتجات">Products</a></li>
+                        <li><a href="D:\x-night\contact us\contact_us.html" data-en="Contact" data-ar="تواصل">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4 data-en="Products" data-ar="المنتجات">Products</h4>
+                    <ul class="footer-links">
+                        <li><a href="D:\x-night\products\massage_oil.html" data-en="Massage Oil" data-ar="زيت التدليك">Massage Oil</a></li>
+                        <li><a href="D:\x-night\products\lubricant_gel.html" data-en="Lubricant & Gel" data-ar="مزلق وجل">Lubricant & Gel</a></li>
+                        <li><a href="D:\x-night\products\whitening_drops.html" data-en="Whitening Drops" data-ar="قطرات التبييض">Whitening Drops</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4 data-en="Contact" data-ar="تواصل">Contact</h4>
+                    <ul class="footer-links" style="list-style: none;">
+                        <li style="margin-bottom: 12px;">
+                            <span style="color: var(--silver-accent); font-size: 14px;">info@x-night.com</span>
+                        </li>
+                        <li style="margin-bottom: 12px;">
+                            <span style="color: var(--silver-accent); font-size: 14px;">+971 XX XXX XXXX</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p data-en="© 2026 X-Night. All rights reserved." data-ar="© 2026 X-Night. جميع الحقوق محفوظة.">
+                    © 2026 X-Night. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Language switching
+        let currentLang = 'en';
+        
+        function switchLanguage(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang;
+            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+            
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            document.querySelectorAll('[data-en]').forEach(el => {
+                const text = el.getAttribute(`data-${lang}`);
+                if (text) {
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                        el.placeholder = text;
+                    } else {
+                        el.textContent = text;
+                    }
+                }
+            });
+        }
+        
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const navMenu = document.querySelector('.nav-menu');
+            navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+        }
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        });
+        
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
